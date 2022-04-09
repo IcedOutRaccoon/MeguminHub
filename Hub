@@ -1,4 +1,8 @@
-local ScreenGui = Instance.new("ScreenGui")
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local BaseFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
 local BaseFrame_2 = Instance.new("Frame")
@@ -53,12 +57,8 @@ local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
-
 BaseFrame.Name = "BaseFrame"
-BaseFrame.Parent = ScreenGui
+BaseFrame.Parent = game.StarterGui.ScreenGui
 BaseFrame.BackgroundColor3 = Color3.fromRGB(158, 0, 2)
 BaseFrame.Position = UDim2.new(0, 0, 0, 230)
 BaseFrame.Size = UDim2.new(0, 248, 0, 225)
@@ -134,7 +134,6 @@ TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
-
 
 UICorner_4.CornerRadius = UDim.new(1, 8)
 UICorner_4.Parent = TextButton
@@ -388,3 +387,249 @@ UICorner_23.Parent = TextButton_20
 
 UIAspectRatioConstraint.Parent = BaseFrame
 UIAspectRatioConstraint.AspectRatio = 1.102
+
+-- Scripts:
+
+local function RKRWOWW_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(RKRWOWW_fake_script)()
+local function YWRA_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(YWRA_fake_script)()
+local function GRFVLD_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(GRFVLD_fake_script)()
+local function PRKTW_fake_script() -- TextButton_4.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_4)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(PRKTW_fake_script)()
+local function ZMAVNOU_fake_script() -- TextButton_5.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_5)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(ZMAVNOU_fake_script)()
+local function AJHX_fake_script() -- TextButton_6.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_6)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(AJHX_fake_script)()
+local function JCNXF_fake_script() -- TextButton_7.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_7)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(JCNXF_fake_script)()
+local function CZAOE_fake_script() -- TextButton_8.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_8)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(CZAOE_fake_script)()
+local function BANKAP_fake_script() -- TextButton_9.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_9)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(BANKAP_fake_script)()
+local function TDOVJBE_fake_script() -- TextButton_10.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_10)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(TDOVJBE_fake_script)()
+local function WCHYQPQ_fake_script() -- TextButton_11.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_11)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(WCHYQPQ_fake_script)()
+local function LHUAW_fake_script() -- TextButton_12.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_12)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(LHUAW_fake_script)()
+local function LQJARJ_fake_script() -- TextButton_13.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_13)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(LQJARJ_fake_script)()
+local function VBTLSET_fake_script() -- TextButton_14.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_14)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(VBTLSET_fake_script)()
+local function PENA_fake_script() -- TextButton_15.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_15)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(PENA_fake_script)()
+local function WOCNAKU_fake_script() -- TextButton_16.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_16)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(WOCNAKU_fake_script)()
+local function YBOK_fake_script() -- TextButton_17.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_17)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(YBOK_fake_script)()
+local function ADMEGI_fake_script() -- TextButton_18.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_18)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(ADMEGI_fake_script)()
+local function ESUZJ_fake_script() -- TextButton_19.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_19)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(ESUZJ_fake_script)()
+local function BZQS_fake_script() -- TextButton_20.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_20)
+
+	local function onClick()
+		
+	end
+	
+	button.MouseButton1Click:Connect(onClick)
+end
+coroutine.wrap(BZQS_fake_script)()
+local function TLYRLZ_fake_script() -- BaseFrame.LocalScript 
+	local script = Instance.new('LocalScript', BaseFrame)
+
+	local Drag = script.Parent.Parent.Frame
+	gsCoreGui = game:GetService("CoreGui")
+	gsTween = game:GetService("TweenService")
+	local UserInputService = game:GetService("UserInputService")
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	local function update(input)
+		local delta = input.Position - dragStart
+		local dragTime = 0.04
+		local SmoothDrag = {}
+		SmoothDrag.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		local dragSmoothFunction = gsTween:Create(Drag, TweenInfo.new(dragTime, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), SmoothDrag)
+		dragSmoothFunction:Play()
+	end
+	Drag.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = Drag.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	Drag.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging and Drag.Size then
+			update(input)
+		end
+	end)
+end
+coroutine.wrap(TLYRLZ_fake_script)()
