@@ -1,11 +1,11 @@
 --UI CREDITS ARE KAVO LIBRARY BY XHeptic IF INTERESTED: https://xheptcofficial.gitbook.io/kavo-library/
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 if game.PlaceId == 8365905206 then
-local Window = Library.CreateLib("Tag Game", "BloodTheme")
-local FarmingTab = Window:NewTab("Farming")
-local FarmingSection = FarmingTab:NewSection("Farming")
-FarmingSection:NewButton("Coin Farm", "Farms Coins may break if you get stuck use a noclip", function()
-    while true do
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Main = Library.CreateLib("BloodTheme", "DarkTheme")
+local FarmingTab = Main:NewTab("Farming")
+local FarmnSection = FarmingTab:NewSection("Farm")
+FarmSection:NewButton("Coin Farm", "Coin Farming picks up all coins around the map tping you to them, if you get stuck try to use a noclip script", function()
+while true do
 	wait(2)
 local modelcoin = game.Workspace.Coins:FindFirstChild("Coin")
 local plr = game.Players.LocalPlayer
@@ -15,12 +15,11 @@ charitems.CanCollide = false
 char:MoveTo(modelcoin.Coin.Position)
 end
 end)
-FarmingSection:NewButton("Safe Zone", "Keeps you in a safe zone so you can't get tagged and can farm wins, if you are a tagger it won't auto tag.", function()
-    while true do
+FarmingSection:NewButton("Safe Zone", "Will autofarm rounds by tping you to a safe place outside of the map does not count you being a tagger", function()
+while true do
 	wait(0.1)
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 char:MoveTo(game.Workspace.ShopPreview.MoveTo1.Position)
 end
 end)
-end
