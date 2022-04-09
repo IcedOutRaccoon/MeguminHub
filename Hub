@@ -2,7 +2,8 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 if game.PlaceId == 8365905206 then
 local Window = Library.CreateLib("Tag Game", "BloodTheme")
-local Tab = Window:NewTab("Farming")
+local FarmingTab = Window:NewTab("Farming")
+local FarmingSection = Tab:NewSection("Farming")
 Section:NewButton("Coin Farm", "Farms Coins may break if you get stuck use a noclip", function()
     while true do
 	wait(2)
