@@ -4,7 +4,7 @@ if game.PlaceId == 8365905206 then
 local Window = Library.CreateLib("Tag Game", "BloodTheme")
 local FarmingTab = Window:NewTab("Farming")
 local FarmingSection = Tab:NewSection("Farming")
-Section:NewButton("Coin Farm", "Farms Coins may break if you get stuck use a noclip", function()
+FarmingSection:NewButton("Coin Farm", "Farms Coins may break if you get stuck use a noclip", function()
     while true do
 	wait(2)
 local modelcoin = game.Workspace.Coins:FindFirstChild("Coin")
@@ -15,7 +15,7 @@ charitems.CanCollide = false
 char:MoveTo(modelcoin.Coin.Position)
 end
 end)
-Section:NewButton("Safe Zone", "Keeps you in a safe zone so you can't get tagged and can farm wins, if you are a tagger it won't auto tag.", function()
+FarmingSection:NewButton("Safe Zone", "Keeps you in a safe zone so you can't get tagged and can farm wins, if you are a tagger it won't auto tag.", function()
     while true do
 	wait(0.1)
 local plr = game.Players.LocalPlayer
