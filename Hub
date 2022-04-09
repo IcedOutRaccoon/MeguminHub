@@ -1,0 +1,395 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local BaseFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local BaseFrame_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local MeguminIcon = Instance.new("ImageLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Texts = Instance.new("Folder")
+local MeguminHub = Instance.new("TextLabel")
+local Game = Instance.new("TextLabel")
+local Scripts = Instance.new("ScrollingFrame")
+local TextButton = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextButton_4 = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local TextButton_5 = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local TextButton_6 = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local TextButton_7 = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local TextButton_8 = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
+local TextButton_9 = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local TextButton_10 = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local TextButton_11 = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local TextButton_12 = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local TextButton_13 = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local TextButton_14 = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local TextButton_15 = Instance.new("TextButton")
+local UICorner_18 = Instance.new("UICorner")
+local TextButton_16 = Instance.new("TextButton")
+local UICorner_19 = Instance.new("UICorner")
+local TextButton_17 = Instance.new("TextButton")
+local UICorner_20 = Instance.new("UICorner")
+local TextButton_18 = Instance.new("TextButton")
+local UICorner_21 = Instance.new("UICorner")
+local TextButton_19 = Instance.new("TextButton")
+local UICorner_22 = Instance.new("UICorner")
+local TextButton_20 = Instance.new("TextButton")
+local UICorner_23 = Instance.new("UICorner")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+BaseFrame.Name = "BaseFrame"
+BaseFrame.Parent = ScreenGui
+BaseFrame.BackgroundColor3 = Color3.fromRGB(158, 0, 2)
+BaseFrame.Position = UDim2.new(0, 0, 0, 230)
+BaseFrame.Size = UDim2.new(0, 248, 0, 225)
+
+UICorner.CornerRadius = UDim.new(0.100000001, 0)
+UICorner.Parent = BaseFrame
+
+BaseFrame_2.Name = "BaseFrame"
+BaseFrame_2.Parent = BaseFrame
+BaseFrame_2.BackgroundColor3 = Color3.fromRGB(158, 0, 2)
+BaseFrame_2.Position = UDim2.new(-0.00122790178, 0, -0.528888881, 0)
+BaseFrame_2.Size = UDim2.new(0, 138, 0, 141)
+
+UICorner_2.CornerRadius = UDim.new(0.100000001, 0)
+UICorner_2.Parent = BaseFrame_2
+
+MeguminIcon.Name = "MeguminIcon"
+MeguminIcon.Parent = BaseFrame_2
+MeguminIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MeguminIcon.BackgroundTransparency = 1.000
+MeguminIcon.Position = UDim2.new(0.0732568279, 0, 0.0700314343, 0)
+MeguminIcon.Size = UDim2.new(0, 116, 0, 109)
+MeguminIcon.Image = "http://www.roblox.com/asset/?id=4919457705"
+
+UICorner_3.CornerRadius = UDim.new(1, 1)
+UICorner_3.Parent = MeguminIcon
+
+Texts.Name = "Texts"
+Texts.Parent = BaseFrame
+
+MeguminHub.Name = "MeguminHub"
+MeguminHub.Parent = BaseFrame
+MeguminHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MeguminHub.BackgroundTransparency = 1.000
+MeguminHub.Position = UDim2.new(0.0443548374, 0, 0, 0)
+MeguminHub.Size = UDim2.new(0, 226, 0, 50)
+MeguminHub.Font = Enum.Font.PermanentMarker
+MeguminHub.Text = "Megumin Hub"
+MeguminHub.TextColor3 = Color3.fromRGB(0, 0, 0)
+MeguminHub.TextSize = 48.000
+
+Game.Name = "Game"
+Game.Parent = BaseFrame
+Game.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Game.BackgroundTransparency = 1.000
+Game.Position = UDim2.new(0.0362903215, 0, 0.222222224, 0)
+Game.Size = UDim2.new(0, 177, 0, 30)
+Game.Font = Enum.Font.PermanentMarker
+Game.Text = "Game"
+Game.TextColor3 = Color3.fromRGB(0, 0, 0)
+Game.TextScaled = true
+Game.TextSize = 14.000
+Game.TextWrapped = true
+
+Scripts.Name = "Scripts"
+Scripts.Parent = BaseFrame
+Scripts.Active = true
+Scripts.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Scripts.BackgroundTransparency = 1.000
+Scripts.Position = UDim2.new(0, 0, 0.395555556, 0)
+Scripts.Size = UDim2.new(0, 248, 0, 136)
+Scripts.BottomImage = "rbxassetid://9323242526"
+Scripts.CanvasSize = UDim2.new(0, 0, 5, 5)
+Scripts.MidImage = "rbxassetid://0"
+Scripts.ScrollBarThickness = 0
+
+TextButton.Parent = Scripts
+TextButton.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton.Position = UDim2.new(0.0201612897, 0, 0, 0)
+TextButton.Size = UDim2.new(0, 237, 0, 50)
+TextButton.Font = Enum.Font.PermanentMarker
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+
+UICorner_4.CornerRadius = UDim.new(1, 8)
+UICorner_4.Parent = TextButton
+
+TextButton_2.Parent = Scripts
+TextButton_2.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_2.Position = UDim2.new(0.0201612897, 0, 0.0442477874, 0)
+TextButton_2.Size = UDim2.new(0, 237, 0, 50)
+TextButton_2.Font = Enum.Font.PermanentMarker
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(1, 8)
+UICorner_5.Parent = TextButton_2
+
+TextButton_3.Parent = Scripts
+TextButton_3.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_3.Position = UDim2.new(0.0201612897, 0, 0.132743359, 0)
+TextButton_3.Size = UDim2.new(0, 237, 0, 50)
+TextButton_3.Font = Enum.Font.PermanentMarker
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextScaled = true
+TextButton_3.TextSize = 14.000
+TextButton_3.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(1, 8)
+UICorner_6.Parent = TextButton_3
+
+TextButton_4.Parent = Scripts
+TextButton_4.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_4.Position = UDim2.new(0.0201612897, 0, 0.0884955749, 0)
+TextButton_4.Size = UDim2.new(0, 237, 0, 50)
+TextButton_4.Font = Enum.Font.PermanentMarker
+TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.TextScaled = true
+TextButton_4.TextSize = 14.000
+TextButton_4.TextWrapped = true
+
+UICorner_7.CornerRadius = UDim.new(1, 8)
+UICorner_7.Parent = TextButton_4
+
+TextButton_5.Parent = Scripts
+TextButton_5.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_5.Position = UDim2.new(0.0201612897, 0, 0.221238941, 0)
+TextButton_5.Size = UDim2.new(0, 237, 0, 50)
+TextButton_5.Font = Enum.Font.PermanentMarker
+TextButton_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_5.TextScaled = true
+TextButton_5.TextSize = 14.000
+TextButton_5.TextWrapped = true
+
+UICorner_8.CornerRadius = UDim.new(1, 8)
+UICorner_8.Parent = TextButton_5
+
+TextButton_6.Parent = Scripts
+TextButton_6.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_6.Position = UDim2.new(0.0201612897, 0, 0.17699115, 0)
+TextButton_6.Size = UDim2.new(0, 237, 0, 50)
+TextButton_6.Font = Enum.Font.PermanentMarker
+TextButton_6.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_6.TextScaled = true
+TextButton_6.TextSize = 14.000
+TextButton_6.TextWrapped = true
+
+UICorner_9.CornerRadius = UDim.new(1, 8)
+UICorner_9.Parent = TextButton_6
+
+TextButton_7.Parent = Scripts
+TextButton_7.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_7.Position = UDim2.new(0.0201612897, 0, 0.486725628, 0)
+TextButton_7.Size = UDim2.new(0, 237, 0, 50)
+TextButton_7.Font = Enum.Font.PermanentMarker
+TextButton_7.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_7.TextScaled = true
+TextButton_7.TextSize = 14.000
+TextButton_7.TextWrapped = true
+
+UICorner_10.CornerRadius = UDim.new(1, 8)
+UICorner_10.Parent = TextButton_7
+
+TextButton_8.Parent = Scripts
+TextButton_8.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_8.Position = UDim2.new(0.0201612897, 0, 0.442477882, 0)
+TextButton_8.Size = UDim2.new(0, 237, 0, 50)
+TextButton_8.Font = Enum.Font.PermanentMarker
+TextButton_8.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_8.TextScaled = true
+TextButton_8.TextSize = 14.000
+TextButton_8.TextWrapped = true
+
+UICorner_11.CornerRadius = UDim.new(1, 8)
+UICorner_11.Parent = TextButton_8
+
+TextButton_9.Parent = Scripts
+TextButton_9.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_9.Position = UDim2.new(0.0201612897, 0, 0.35398227, 0)
+TextButton_9.Size = UDim2.new(0, 237, 0, 50)
+TextButton_9.Font = Enum.Font.PermanentMarker
+TextButton_9.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_9.TextScaled = true
+TextButton_9.TextSize = 14.000
+TextButton_9.TextWrapped = true
+
+UICorner_12.CornerRadius = UDim.new(1, 8)
+UICorner_12.Parent = TextButton_9
+
+TextButton_10.Parent = Scripts
+TextButton_10.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_10.Position = UDim2.new(0.0201612897, 0, 0.398230076, 0)
+TextButton_10.Size = UDim2.new(0, 237, 0, 50)
+TextButton_10.Font = Enum.Font.PermanentMarker
+TextButton_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_10.TextScaled = true
+TextButton_10.TextSize = 14.000
+TextButton_10.TextWrapped = true
+
+UICorner_13.CornerRadius = UDim.new(1, 8)
+UICorner_13.Parent = TextButton_10
+
+TextButton_11.Parent = Scripts
+TextButton_11.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_11.Position = UDim2.new(0.0201612897, 0, 0.309734523, 0)
+TextButton_11.Size = UDim2.new(0, 237, 0, 50)
+TextButton_11.Font = Enum.Font.PermanentMarker
+TextButton_11.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_11.TextScaled = true
+TextButton_11.TextSize = 14.000
+TextButton_11.TextWrapped = true
+
+UICorner_14.CornerRadius = UDim.new(1, 8)
+UICorner_14.Parent = TextButton_11
+
+TextButton_12.Parent = Scripts
+TextButton_12.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_12.Position = UDim2.new(0.0201612897, 0, 0.265486717, 0)
+TextButton_12.Size = UDim2.new(0, 237, 0, 50)
+TextButton_12.Font = Enum.Font.PermanentMarker
+TextButton_12.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_12.TextScaled = true
+TextButton_12.TextSize = 14.000
+TextButton_12.TextWrapped = true
+
+UICorner_15.CornerRadius = UDim.new(1, 8)
+UICorner_15.Parent = TextButton_12
+
+TextButton_13.Parent = Scripts
+TextButton_13.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_13.Position = UDim2.new(0.0201612897, 0, 0.530973434, 0)
+TextButton_13.Size = UDim2.new(0, 237, 0, 50)
+TextButton_13.Font = Enum.Font.PermanentMarker
+TextButton_13.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_13.TextScaled = true
+TextButton_13.TextSize = 14.000
+TextButton_13.TextWrapped = true
+
+UICorner_16.CornerRadius = UDim.new(1, 8)
+UICorner_16.Parent = TextButton_13
+
+TextButton_14.Parent = Scripts
+TextButton_14.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_14.Position = UDim2.new(0.0201612897, 0, 0.575221241, 0)
+TextButton_14.Size = UDim2.new(0, 237, 0, 50)
+TextButton_14.Font = Enum.Font.PermanentMarker
+TextButton_14.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_14.TextScaled = true
+TextButton_14.TextSize = 14.000
+TextButton_14.TextWrapped = true
+
+UICorner_17.CornerRadius = UDim.new(1, 8)
+UICorner_17.Parent = TextButton_14
+
+TextButton_15.Parent = Scripts
+TextButton_15.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_15.Position = UDim2.new(0.0201612897, 0, 0.663716793, 0)
+TextButton_15.Size = UDim2.new(0, 237, 0, 50)
+TextButton_15.Font = Enum.Font.PermanentMarker
+TextButton_15.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_15.TextScaled = true
+TextButton_15.TextSize = 14.000
+TextButton_15.TextWrapped = true
+
+UICorner_18.CornerRadius = UDim.new(1, 8)
+UICorner_18.Parent = TextButton_15
+
+TextButton_16.Parent = Scripts
+TextButton_16.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_16.Position = UDim2.new(0.0201612897, 0, 0.619468987, 0)
+TextButton_16.Size = UDim2.new(0, 237, 0, 50)
+TextButton_16.Font = Enum.Font.PermanentMarker
+TextButton_16.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_16.TextScaled = true
+TextButton_16.TextSize = 14.000
+TextButton_16.TextWrapped = true
+
+UICorner_19.CornerRadius = UDim.new(1, 8)
+UICorner_19.Parent = TextButton_16
+
+TextButton_17.Parent = Scripts
+TextButton_17.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_17.Position = UDim2.new(0.0201612897, 0, 0.752212346, 0)
+TextButton_17.Size = UDim2.new(0, 237, 0, 50)
+TextButton_17.Font = Enum.Font.PermanentMarker
+TextButton_17.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_17.TextScaled = true
+TextButton_17.TextSize = 14.000
+TextButton_17.TextWrapped = true
+
+UICorner_20.CornerRadius = UDim.new(1, 8)
+UICorner_20.Parent = TextButton_17
+
+TextButton_18.Parent = Scripts
+TextButton_18.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_18.Position = UDim2.new(0.0201612897, 0, 0.707964599, 0)
+TextButton_18.Size = UDim2.new(0, 237, 0, 50)
+TextButton_18.Font = Enum.Font.PermanentMarker
+TextButton_18.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_18.TextScaled = true
+TextButton_18.TextSize = 14.000
+TextButton_18.TextWrapped = true
+
+UICorner_21.CornerRadius = UDim.new(1, 8)
+UICorner_21.Parent = TextButton_18
+
+TextButton_19.Parent = Scripts
+TextButton_19.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_19.Position = UDim2.new(0.0201612897, 0, 1.01769912, 0)
+TextButton_19.Size = UDim2.new(0, 237, 0, 50)
+TextButton_19.Font = Enum.Font.PermanentMarker
+TextButton_19.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_19.TextScaled = true
+TextButton_19.TextSize = 14.000
+TextButton_19.TextWrapped = true
+
+UICorner_22.CornerRadius = UDim.new(1, 8)
+UICorner_22.Parent = TextButton_19
+
+TextButton_20.Parent = Scripts
+TextButton_20.BackgroundColor3 = Color3.fromRGB(156, 31, 33)
+TextButton_20.Position = UDim2.new(0.0201612897, 0, 0.795575202, 0)
+TextButton_20.Size = UDim2.new(0, 237, 0, 50)
+TextButton_20.Font = Enum.Font.PermanentMarker
+TextButton_20.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_20.TextScaled = true
+TextButton_20.TextSize = 14.000
+TextButton_20.TextWrapped = true
+
+UICorner_23.CornerRadius = UDim.new(1, 8)
+UICorner_23.Parent = TextButton_20
+
+UIAspectRatioConstraint.Parent = BaseFrame
+UIAspectRatioConstraint.AspectRatio = 1.102
