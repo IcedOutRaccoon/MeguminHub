@@ -2,7 +2,7 @@
 -- Version: 3.2
 
 -- Instances:
-
+if game.PlaceId == 8365905206 then
 local ScreenGui = Instance.new("ScreenGui")
 local BaseFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -112,7 +112,7 @@ Game.BackgroundTransparency = 1.000
 Game.Position = UDim2.new(0.0362903215, 0, 0.222222224, 0)
 Game.Size = UDim2.new(0, 177, 0, 30)
 Game.Font = Enum.Font.PermanentMarker
-Game.Text = "Game"
+Game.Text = "Untitled Tag Game"
 Game.TextColor3 = Color3.fromRGB(0, 0, 0)
 Game.TextScaled = true
 Game.TextSize = 14.000
@@ -139,6 +139,7 @@ TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
+TextButton.Text = ("Auto Coins")
 
 UICorner_4.CornerRadius = UDim.new(1, 8)
 UICorner_4.Parent = TextButton
@@ -152,6 +153,7 @@ TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_2.TextScaled = true
 TextButton_2.TextSize = 14.000
 TextButton_2.TextWrapped = true
+TextButton_2.Text = ("Safe Zone")
 
 UICorner_5.CornerRadius = UDim.new(1, 8)
 UICorner_5.Parent = TextButton_2
@@ -399,7 +401,15 @@ local function GIFJKWI_fake_script() -- TextButton.LocalScript
 	local script = Instance.new('LocalScript', TextButton)
 
 	local function onClick()
-		
+		while true do
+	wait(0.5)
+local modelcoin = game.Workspace.Coins:FindFirstChild("Coin")
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local charitems = char:GetChildren("IsAPart")
+charitems.CanCollide = false
+char:MoveTo(modelcoin.Coin.Position)
+end
 	end
 	
 	button.MouseButton1Click:Connect(onClick)
@@ -409,7 +419,12 @@ local function PVJRYSZ_fake_script() -- TextButton_2.LocalScript
 	local script = Instance.new('LocalScript', TextButton_2)
 
 	local function onClick()
-		
+	while true do
+	wait(0.1)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+char:MoveTo(game.Workspace.ShopPreview.MoveTo1.Position)
+end
 	end
 	
 	button.MouseButton1Click:Connect(onClick)
@@ -595,3 +610,4 @@ local function DFCSG_fake_script() -- TextButton_20.LocalScript
 	button.MouseButton1Click:Connect(onClick)
 end
 coroutine.wrap(DFCSG_fake_script)()
+end
