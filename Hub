@@ -1,4 +1,3 @@
---Made with gui to lua
 local ScreenGui = Instance.new("ScreenGui")
 local BaseFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
