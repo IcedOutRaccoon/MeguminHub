@@ -1,9 +1,9 @@
---UI CREDITS ARE KAVO LIBRARY BY XHeptic IF INTERESTED: https://xheptcofficial.gitbook.io/kavo-library/
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Main = Library.CreateLib("BloodTheme", "DarkTheme")
-local FarmingTab = Main:NewTab("Farming")
-local FarmnSection = FarmingTab:NewSection("Farm")
-FarmSection:NewButton("Coin Farm", "Coin Farming picks up all coins around the map tping you to them, if you get stuck try to use a noclip script", function()
+--Credits to twinklibrary for ui: https://v3rmillion.net/showthread.php?tid=1023761
+if game.PlaceId == 8365905206 then
+local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
+local MainUI = UILibrary.Load("Kotzuki Hub")
+local FirstPage = MainUI.AddPage("AutoFarm", true)
+local FirstButton = FirstPage.AddButton("Coin Farm", function()
 while true do
 	wait(2)
 local modelcoin = game.Workspace.Coins:FindFirstChild("Coin")
@@ -14,7 +14,7 @@ charitems.CanCollide = false
 char:MoveTo(modelcoin.Coin.Position)
 end
 end)
-FarmingSection:NewButton("Safe Zone", "Will autofarm rounds by tping you to a safe place outside of the map does not count you being a tagger", function()
+local FirstButton = FirstPage.AddButton("Safe Zone Farm", function()
 while true do
 	wait(0.1)
 local plr = game.Players.LocalPlayer
@@ -22,3 +22,4 @@ local char = plr.Character
 char:MoveTo(game.Workspace.ShopPreview.MoveTo1.Position)
 end
 end)
+end
