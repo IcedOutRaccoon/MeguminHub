@@ -91,4 +91,9 @@ local char = plr.Character
 char:MoveTo(game.Workspace.ShopPreview.MoveTo1.Position)
 end
 end)
+local ThirdPage = MainUI.AddPage("Credits")
+local FirstLabel = ThirdPage.AddLabel("Discord: https://discord.gg/4EBf3Ka2xk")
+local SecondLabel = ThirdPage.AddLabel("Made by IcedOutRaccoon#0001")
+local ThirdLabel = ThirdPage.AddLabel("Credits To The Owners Of The Scripts In Scripts Tab")
+local FourthLabel = ThirdPage.AddLabel("Powered By Twink Library")
 end
