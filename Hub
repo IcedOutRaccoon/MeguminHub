@@ -189,7 +189,7 @@ end)
 local FourthPage = MainUI.AddPage("Barrages")
 local FirstButton = FourthPage.AddButton("JiuJitsu Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -200,7 +200,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Karate Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -211,7 +211,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Boxing Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -222,7 +222,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("KickBoxing Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -233,7 +233,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Taekwondo Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -244,7 +244,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Street Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -255,7 +255,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Capoeira Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -266,7 +266,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Muay Thai Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -277,7 +277,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Wrestling Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -288,7 +288,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("JiuJitsu Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -299,7 +299,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Peekabo Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -310,7 +310,7 @@ end
 end)
 local FirstButton = FourthPage.AddButton("Acrobat Barrage", function()
 while true do
-wait(0.01)
+wait(0.1)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
