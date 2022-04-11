@@ -1,6 +1,7 @@
 --Credits to twinklibrary for ui: https://v3rmillion.net/showthread.php?tid=1023761
 --GLOBAL HUB
-if game.PlaceId ~= 8365905206 or 7285447838 then
+if game.PlaceId ~= 7285447838 then
+if game.PlaceId ~= 8365905206 then
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
 local MainUI = UILibrary.Load("Kotzuki Hub (Global)")
 local FirstPage = MainUI.AddPage("Player")
@@ -49,6 +50,7 @@ local FirstLabel = ThirdPage.AddLabel("Discord: https://discord.gg/4EBf3Ka2xk")
 local SecondLabel = ThirdPage.AddLabel("Made by IcedOutRaccoon#0001")
 local ThirdLabel = ThirdPage.AddLabel("Credits To The Owners Of The Scripts In Scripts Tab")
 local FourthLabel = ThirdPage.AddLabel("Powered By Twink Library")
+end
 end
 --UNTITLED TAG GAME
 if game.PlaceId == 8365905206 then
@@ -184,10 +186,10 @@ end)
 local FourthButton = ThirdPage.AddButton("Pizza", function()
 game.Players.LocalPlayer.Character:MoveTo(Vector3.new(517.21, 3.54815, -54.4292))
 end)
-local FourthPage = MainUI.AddPage("Fun :wink:")
-local FirstButton = FourthPage.AddButton("Inf Barrage", function()
+local FourthPage = MainUI.AddPage("Barrages")
+local FirstButton = FourthPage.AddButton("JiuJitsu Barrage", function()
 while true do
-wait(0.001)
+wait(0.01)
 local args = {
     [1] = 1,
     [2] = game:GetService("Players").LocalPlayer.Character
@@ -196,7 +198,127 @@ local args = {
 game:GetService("Players").LocalPlayer.Character:FindFirstChild("JiuJitsu Style").Combat.Hits:FireServer(unpack(args))
 end
 end)
---DO NOT FUCK WITH END IM BLACK PLEASE
+local FirstButton = FourthPage.AddButton("Karate Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Karate Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Boxing Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Boxing Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("KickBoxing Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("KickBoxing Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Taekwondo Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taekwondo Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Street Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Street Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Capoeira Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Capoeira Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Muay Thai Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("MuayThai Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Wrestling Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Wrestling Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("JiuJitsu Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("KungFu Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Peekabo Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Peekabo Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+local FirstButton = FourthPage.AddButton("Acrobat Barrage", function()
+while true do
+wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Acrobat Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
 end
 
 
