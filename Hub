@@ -319,6 +319,15 @@ local args = {
 game:GetService("Players").LocalPlayer.Character:FindFirstChild("Acrobat Style").Combat.Hits:FireServer(unpack(args))
 end
 end)
+local FirstButton = FourthPage.AddButton("No Style Barrage", function()
+while true do wait(0.01)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character.NonStyle.Combat.Hits:FireServer(unpack(args))
+end)
 end
 
 
