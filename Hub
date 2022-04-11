@@ -1,6 +1,6 @@
 --Credits to twinklibrary for ui: https://v3rmillion.net/showthread.php?tid=1023761
 --GLOBAL HUB
-if game.PlaceId ~= 8365905206 then
+if game.PlaceId ~= 8365905206 or 7285447838 then
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
 local MainUI = UILibrary.Load("Kotzuki Hub (Global)")
 local FirstPage = MainUI.AddPage("Player")
@@ -93,3 +93,110 @@ local SecondLabel = ThirdPage.AddLabel("Made by IcedOutRaccoon#0001")
 local ThirdLabel = ThirdPage.AddLabel("Credits To The Owners Of The Scripts In Scripts Tab")
 local FourthLabel = ThirdPage.AddLabel("Powered By Twink Library")
 end
+--Tokyo Saga
+if game.PlaceId == 7285447838 then
+local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
+local MainUI = UILibrary.Load("Kotzuki Hub (Tokyo Saga)")
+local FirstPage = MainUI.AddPage("Player")
+local FirstSlider = FirstPage.AddSlider("WalkSpeed (USE AT YOUR OWN RISK)", {Min = 0, Max = 300, Def = 16}, function(Value1)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value1
+end)
+local SecondSlider = FirstPage.AddSlider("JumpPower (USE AT YOUR OWN RISK)", {Min = 0, Max = 300, Def = 50}, function(Value2)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value2
+end)
+local ThirdSlider = FirstPage.AddSlider("Float (USE AT YOUR OWN RISK)", {Min = 0, Max = 100, Def = 1}, function(Value3)
+game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value3
+end)
+local FourthSlider = FirstPage.AddSlider("Gravity (Put to max to fix gravity)", {Min = 0, Max = 196.2, Def = 1}, function(Value4)
+game.Workspace.Gravity = Value4
+end)
+local SecondPage = MainUI.AddPage("Farming")
+local FirstButton = SecondPage.AddButton("Defense", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Defense
+}
+
+game:GetService("ReplicatedStorage").Defense:FireServer(unpack(args))
+end
+end)
+local SecondButton = SecondPage.AddButton("Advanced Defense", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Advance Defense")
+}
+
+game:GetService("ReplicatedStorage").AdvDefense:FireServer(unpack(args))
+end
+end)
+local ThirdButton = SecondPage.AddButton("Strength", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Strength
+}
+
+game:GetService("ReplicatedStorage").Pushup:FireServer(unpack(args))
+end
+end)
+local FourthButton = SecondPage.AddButton("Weights", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Weight
+}
+
+game:GetService("ReplicatedStorage").Weight:FireServer(unpack(args))
+end
+end)
+local FifthButton = SecondPage.AddButton("JumpRope", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Jump Rope")
+}
+
+game:GetService("ReplicatedStorage").Stamina:FireServer(unpack(args))
+end
+end)
+local FifthButton = SecondPage.AddButton("Squat", function()
+while true do
+wait(1)
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Squat
+}
+
+game:GetService("ReplicatedStorage").Squat:FireServer(unpack(args))
+end
+end)
+local ThirdPage = MainUI.AddPage("Teleports")
+local FirstButton = ThirdPage.AddButton("Gym", function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(364.687, 0.467424, 313.477))
+end)
+local SecondButton = ThirdPage.AddButton("Start Quest", function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-170.448, 0.438435, -99.5176))
+end)
+local ThirdButton = ThirdPage.AddButton("End Quest", function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(658.57, 2.74115, -68.3868))
+end)
+local FourthButton = ThirdPage.AddButton("Pizza", function()
+game.Players.LocalPlayer.Character:MoveTo(Vector3.new(517.21, 3.54815, -54.4292))
+end)
+local FourthPage = MainUI.AddPage("Fun :wink:")
+local FirstButton = FourthPage.AddButton("Inf Barrage", function()
+while true do
+wait(0.001)
+local args = {
+    [1] = 1,
+    [2] = game:GetService("Players").LocalPlayer.Character
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("JiuJitsu Style").Combat.Hits:FireServer(unpack(args))
+end
+end)
+--DO NOT FUCK WITH END IM BLACK PLEASE
+end
+
+
