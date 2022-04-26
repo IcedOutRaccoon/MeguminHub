@@ -403,6 +403,8 @@ local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))(
 local MainUI = UILibrary.Load("Kotzuki Hub | Criminality")
 local FirstPage = MainUI.AddPage("Main")
 local FirstToggle = FirstPage.AddToggle("Anti-Grip", false, function(Value)
+while true do
+wait(0.1)
 local char = game.Players.LocalPlayer.Character
 if char.Humanoid.Health <= 25 then
 char.HumanoidRootPart.Anchored = true
@@ -416,6 +418,7 @@ char.HumanoidRootPart.Anchored = false
 char.Torso.Anchored = false
 game.Workspace.Torso.Parent = char
 game.Workspace.HumanoidRootPart.Parent = char
+end
 end
 end
 end)
