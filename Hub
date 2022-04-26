@@ -396,3 +396,25 @@ game:GetService("Players").LocalPlayer.Character.NonStyle.Combat.Hits:FireServer
 end
 end)
 end
+if game.PlaceId == 4588604953 then
+local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
+local MainUI = UILibrary.Load("Kotzuki Hub | Criminality")
+local FirstPage = MainUI.AddPage("Main")
+local FirstToggle = FirstPage.AddToggle("Anti-Grip", false, function(Value)
+local char = game.Players.LocalPlayer.Character
+if char.Humanoid.Health <= 25 then
+char.HumanoidRootPart.Anchored = true
+char.Torso.Anchored = true
+char.Torso.Position = Vector3.new(0.1, 0.1, 0.1)
+char.HumanoidRootPart.Position = Vector3.new(0.1, 0.1, 0.1)
+char.HumanoidRootPart.Parent = game.Workspace
+char.Torso.Parent = game.Workspace
+if char.Humanoid.Health >= 45 then
+char.HumanoidRootPart.Anchored = false
+char.Torso.Anchored = false
+game.Workspace.Torso.Parent = char
+game.Workspace.HumanoidRootPart.Parent = char
+end
+end
+end)
+end
