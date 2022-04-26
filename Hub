@@ -419,7 +419,7 @@ char.HumanoidRootPart.Anchored = false
 char.Torso.Anchored = false
 game.Workspace.Torso.Parent = char
 game.Workspace.HumanoidRootPart.Parent = char
-game.Workspace.Humanoid.Parent = char
+char.HumanoidRootPart.Humanoid.Parent = char
 end
 end
 end
