@@ -2,6 +2,7 @@
 --GLOBAL HUB
 if game.PlaceId ~= 7285447838 then
 if game.PlaceId ~= 8365905206 then
+if game.PlaceId ~= 8343259840 then
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
 local MainUI = UILibrary.Load("Kotzuki Hub (Global)")
 local FirstPage = MainUI.AddPage("Player")
@@ -59,6 +60,7 @@ local SecondLabel = ThirdPage.AddLabel("Made by IcedOutRaccoon#0001")
 local ThirdLabel = ThirdPage.AddLabel("Credits To The Owners Of The Scripts In Scripts Tab")
 local FourthLabel = ThirdPage.AddLabel("Powered By Twink Library")
 local FifthLabel = ThirdPage.AddLabel("Think your credits are missing? Dm me from the server")
+end
 end
 end
 --UNTITLED TAG GAME
@@ -396,7 +398,7 @@ game:GetService("Players").LocalPlayer.Character.NonStyle.Combat.Hits:FireServer
 end
 end)
 end
-if game.PlaceId == 4588604953 then
+if game.PlaceId == 8343259840 then
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
 local MainUI = UILibrary.Load("Kotzuki Hub | Criminality")
 local FirstPage = MainUI.AddPage("Main")
