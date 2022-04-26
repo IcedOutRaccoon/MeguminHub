@@ -412,12 +412,14 @@ char.Torso.Anchored = true
 char.Torso.Position = Vector3.new(0.1, 0.1, 0.1)
 char.HumanoidRootPart.Position = Vector3.new(0.1, 0.1, 0.1)
 char.HumanoidRootPart.Parent = game.Workspace
+char.Humanoid.Parent = game.Workspace
 char.Torso.Parent = game.Workspace
 if char.Humanoid.Health >= 45 then
 char.HumanoidRootPart.Anchored = false
 char.Torso.Anchored = false
 game.Workspace.Torso.Parent = char
 game.Workspace.HumanoidRootPart.Parent = char
+game.Workspace.Humanoid.Parent = char
 end
 end
 end
