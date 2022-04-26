@@ -407,7 +407,7 @@ while true do
 wait(0.1)
 local char = game.Players.LocalPlayer.Character
 while true do
-wait(0.1)
+wait(3)
 local args = {
     [1] = 7.5,
     [2] = "Drown"
