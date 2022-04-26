@@ -409,10 +409,11 @@ local char = game.Players.LocalPlayer.Character
 while true do
 wait(0.1)
 local args = {
-    [1] = workspace.Filter.SpawnedTools.Model.Handle
+    [1] = 7.5,
+    [2] = "Drown"
 }
 
-game:GetService("ReplicatedStorage").Events.PIC_TLO:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events.TK_DGM:FireServer(unpack(args))
 end
 end
 end)
