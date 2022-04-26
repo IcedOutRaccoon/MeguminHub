@@ -402,26 +402,17 @@ if game.PlaceId == 8343259840 then
 local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
 local MainUI = UILibrary.Load("Kotzuki Hub | Criminality")
 local FirstPage = MainUI.AddPage("Main")
-local FirstToggle = FirstPage.AddToggle("Anti-Grip", false, function(Value)
+local FirstToggle = FirstPage.AddToggle("Drown Your Self", false, function(Value)
 while true do
 wait(0.1)
 local char = game.Players.LocalPlayer.Character
-if char.Humanoid.Health <= 25 then
-char.HumanoidRootPart.Anchored = true
-char.Torso.Anchored = true
-char.Torso.Position = Vector3.new(0.1, 0.1, 0.1)
-char.HumanoidRootPart.Position = Vector3.new(0.1, 0.1, 0.1)
-char.HumanoidRootPart.Parent = game.Workspace
-char.Humanoid.Parent = game.Workspace.HumanoidRootPart
-char.Torso.Parent = game.Workspace
-if char.Humanoid.Health >= 45 then
-char.HumanoidRootPart.Anchored = false
-char.Torso.Anchored = false
-game.Workspace.Torso.Parent = char
-game.Workspace.HumanoidRootPart.Parent = char
-char.HumanoidRootPart.Humanoid.Parent = char
-end
-end
+while true do
+wait(0.1)
+local args = {
+    [1] = workspace.Filter.SpawnedTools.Model.Handle
+}
+
+game:GetService("ReplicatedStorage").Events.PIC_TLO:FireServer(unpack(args))
 end
 end)
 end
