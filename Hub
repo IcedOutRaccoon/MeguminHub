@@ -1,124 +1,73 @@
 --GetGenv Toggles
-_G.AutoReload = "Implemented Directly Into Button"
-_G.AntiDrown = false
-_G.WallBang = false
-_G.Suicide = false
-_G.Switch = "Implemented Directly Into Button"
-_G.InstantEquip = "Implemented Directly Into Button"
---UI Shit
-local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
-local MainUI = UILibrary.Load("Kotzuki | Criminality")
---Main Page
-local FirstPage = MainUI.AddPage("Main")
-local FirstLabel = FirstPage.AddLabel("Main Buttons")
---Suicide Button
-local FirstButton = FirstPage.AddButton("Suicide", function()
-_G.Suicide = true
-wait(0.1)
-_G.Suicide = false
+_G.AutoReload = false
+getgenv.AntiDrown = false
+getgenv().Suicide = false
+getgenv().AutoReload = false
+getgenv().Switch = false
+getgenv().InstantEquip = "Implemented Directly Into Button"
+------------------------------------------------------------------------
+--_G Suicide
+function Suicide()
+spawn(function()
+while getgenv().Suicide == true do
+game.Players.LocalPlayer.Character.Humanoid.RigType = Enum.HumanoidRigType.R15
+end
 end)
-local SecondLabel = FirstPage.AddLabel("Main Toggles")
-local FirstToggle = FirstPage.AddToggle("Anti-Drown", true, function(Value)
-_G.AntiDrown = Value
+end
+
+--_G Anti Drown
+function AntiDrown()
+spawn(function()
+while getgenv().AntiDrown == true do
+wait()
+game:GetService("ReplicatedStorage").Events.TK_DGM.Name = "TK_DGM0"
+end
 end)
---Guns Page
-local SecondPage = MainUI.AddPage("Guns")
---Global Aim
-local FirstLabel = SecondPage.AddLabel("Global Aim")
---AimBot Button
-local FirstButton = SecondPage.AddButton("Aim Bot", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/Miscellaneous/main/UNIVERSAL.lua"))()
+end
+
+--_G Can Switch
+function InstantEquip()
+spawn(function()
+while getgenv().CanSwitch == true do
+wait()
+local char = game.Players.LocalPlayer.Character
+local tool = char:FindFirstChildWhichIsA("Tool")
+tool.Client.Disabled = true
+tool.PassClient.Disabled = true
+require(char:FindFirstChildWhichIsA("Tool").Config).FireModeSettings.CanSwitch = true
+tool.Client.Disabled = false
+tool.PassClient.Disabled = false
+end
 end)
---Silent Aim Button
-local SecondButton = SecondPage.AddButton("Silent Aim", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Averiias/Universal-SilentAim/main/main.lua"))()
+end
+
+--_G Instant Equip
+function InstantEquip()
+spawn(function()
+while getgenv().InstantEquip == true do
+wait()
+local char = game.Players.LocalPlayer.Character
+local tool = char:FindFirstChildWhichIsA("Tool")
+tool.Client.Disabled = true
+tool.PassClient.Disabled = true
+require(char:FindFirstChildWhichIsA("Tool").Config).EquipTime = 0.1
+require(char:FindFirstChildWhichIsA("Tool").Config).EquipAnimSpeed = 0.1
+tool.Client.Disabled = false
+tool.PassClient.Disabled = false
+end
 end)
---Local Gun
-local SecondLabel = SecondPage.AddLabel("Local Gun")
---Instant Reload Button
-local ThirdButton = SecondPage.AddButton("Instant Reload", function()
-while true do
-wait(0.01)
+end
+
+--_G Instant Reload
+function InstantReload()
+spawn(function()
+while getgenv().AutoReload == true do
+wait()
 local char = game.Players.LocalPlayer.Character
 local tool = char:FindFirstChildWhichIsA("Tool")
 if tool then
-local args = {
-    [1] = math.huge,
-    [2] = "KLWE89U0",
-    [3] = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"),
-    [4] = false
-}
-
+local args = {[1] = math.huge, [2] = "KLWE89U0", [3] = game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"), [4] = false}
 game:GetService("ReplicatedStorage").Events.GZ_R:FireServer(unpack(args))
 end
-end
 end)
---Can Switch
-local ThirdButton = SecondPage.AddButton("Switch Semi/Auto", function()
-local char = game.Players.LocalPlayer.Character
-local tool = char:FindFirstChildWhichIsA("Tool")
-tool.Client.Disabled = true
-tool.PassClient.Disabled = true
-require(char:FindFirstChildWhichIsA("Tool").Config).FireModeSettings.CanSwitch = true
-tool.Client.Disabled = false
-tool.PassClient.Disabled = false
-end)
---Instant Equip
-local ThirdButton = SecondPage.AddButton("Instant Equip", function()
-local char = game.Players.LocalPlayer.Character
-local tool = char:FindFirstChildWhichIsA("Tool")
-tool.Client.Disabled = true
-tool.PassClient.Disabled = true
-require(char:FindFirstChildWhichIsA("Tool").Config).EquipTime = 0.1
-require(char:FindFirstChildWhichIsA("Tool").Config).EquipAnimSpeed = 0.1
-tool.Client.Disabled = false
-tool.PassClient.Disabled = false
-end)
---RETARDED SHIT AKA THE _G SCRIPT THATS A FUCKING NIGGER I HATE EVERYONE IN THIS WORLD!!!!!!!!!!!
---Wallbang
-while true do
-wait(0.1)
-if _G.Suicide == true then
-game.Players.LocalPlayer.Character.Humanoid.RigType = Enum.HumanoidRigType.R15
-end
-end
-while true do
-wait(0.1)
-if _G.WallBang == true then
-game:FindFirstChild("Workspace"):FindFirstChild("Map"):FindFirstChild("Parts"):FindFirstChild("M_Parts").Parent = game:FindFirstChild("Characters")
-end
-end
---Anti Drown
-while true do
-wait(0.1)
-if _G.AntiDrown == true then
-game:GetService("ReplicatedStorage").Events.TK_DGM.Name = "TK_DGM0"
-end
-end
---Can Switch
-while true do
-wait(1)
-if _G.CanSwitch == true then
-local char = game.Players.LocalPlayer.Character
-local tool = char:FindFirstChildWhichIsA("Tool")
-tool.Client.Disabled = true
-tool.PassClient.Disabled = true
-require(char:FindFirstChildWhichIsA("Tool").Config).FireModeSettings.CanSwitch = true
-tool.Client.Disabled = false
-tool.PassClient.Disabled = false
-end
-end
---Instant Equip
-while true do
-wait(1)
-local char = game.Players.LocalPlayer.Character
-local tool = char:FindFirstChildWhichIsA("Tool")
-if _G.InstantEquip == true then
-tool.Client.Disabled = true
-tool.PassClient.Disabled = true
-require(char:FindFirstChildWhichIsA("Tool").Config).EquipTime = 0.1
-require(char:FindFirstChildWhichIsA("Tool").Config).EquipAnimSpeed = 0.1
-tool.Client.Disabled = false
-tool.PassClient.Disabled = false
-end
 end
