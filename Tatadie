@@ -1,0 +1,27 @@
+--//VAR
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hum = char:WaitForChild("Humanoid")
+local CoreGui = game:GetService("StarterGui")
+--//VENYX
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local Kotz = Lib.new("Raccoon || Kotzuki", 5013109572)
+--//PAGE 1
+--Page Vars
+local Page1 = Kotz:addPage("Farm", nil)
+local Section1 = Page1:addSection("Farming Configurations")
+--Button 1
+Section1:addButton("Inf Gloves", function()
+--//BRAIN
+if plr.Character:FindFirstChild("Gloves") then
+    char:FindFirstChild("Gloves"):Destroy()
+    CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "If you didn't use gloves before executing rebuy and execute again or rejoin", Duration = 5})
+elseif plr.Backpack:FindFirstChild("Gloves") then
+    hum:EquipTool(plr.Backpack:FindFirstChild("Gloves"))
+    CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Use glove then re-execute", Duration = 5})
+    end
+    if not char:FindFirstChild("Gloves") and not plr.Backpack:FindFirstChild("Gloves") then
+       CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Buy gloves and use them for it to work", Duration = 5})
+    end
+end)
+--Button 2
