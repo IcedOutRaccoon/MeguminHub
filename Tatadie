@@ -26,11 +26,11 @@ Section1:addButton("Inf Gloves", function()
     end
 end)
 --Button 2
-Section1:addButton("Invis Glove", function("Glove")
+Section1:addButton("Invis Glove", function()
     char:FindFirstChild("RightGloves"):Destroy()
     char:FindFirstChild("LeftGloves"):Destroy()
 end)
 --Button 3
-Section1:addButton("Permenant Inf Glove", function("Glove")
+Section1:addButton("Permenant Inf Glove", function()
      CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "does nothing cuz im lazy rn", Duration = 5})
 end)
