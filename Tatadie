@@ -1,3 +1,7 @@
+--//CONFIG
+getgenv().MinHunger = 15
+getgenv().Food = "yah"
+
 --//VAR
 print(math.random(0,1))
 local plr = game.Players.LocalPlayer
@@ -46,5 +50,22 @@ Section1:addButton("Permenant Inf Glove", function()
     end
     if not char:FindFirstChild("Gloves") and not plr.Backpack:FindFirstChild("Gloves") then
         CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Buy gloves and use them for it to work", Duration = 5})
+    end
+end)
+local Section2 = Page1:addSection("Food")
+section2:addDropdown("Food", {"Ramen", "Burger", "Fried Chicken"}, function(text)
+--//VAR
+    local currtool = nil
+
+--//BRAIN
+    if plr.Backpack:FindFirstChild(Food) then
+        if char:FindFirstChildWhichIsA("Tool") then
+            currtool = char:FindFirstChildWhichIsA("Tool")
+            hum:UneqipTools()
+            task.wait(0.05)
+            hum:EquipTool(char:FindFirstChild(getgenv().Food))
+            mouse1click()
+            CoreGui:SetCore("SendNotification", {Title = "Food", Text = "not out yet", Duration = 5})
+        end
     end
 end)
