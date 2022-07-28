@@ -53,7 +53,7 @@ Section1:addButton("Permenant Inf Glove", function()
     end
 end)
 local Section2 = Page1:addSection("Food")
-section2:addDropdown("Food", {"Ramen", "Burger", "Fried Chicken"}, function(text)
+Section2:addDropdown("Food", {"Ramen", "Burger", "Fried Chicken"}, function(text)
 --//VAR
     local currtool = nil
 
