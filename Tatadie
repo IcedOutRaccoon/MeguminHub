@@ -27,8 +27,13 @@ Section1:addButton("Inf Gloves", function()
 end)
 --Button 2
 Section1:addButton("Invis Glove", function()
-    char:FindFirstChild("RightGloves"):Destroy()
-    char:FindFirstChild("LeftGloves"):Destroy()
+    if not char:FindFirstChild("RightGloves") and not char:FindFirstChild("LeftGloves") then
+        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Gloves not found either you didn't buy gloves or timer ran out", Duration = 5})
+    elseif char:FindFirstChild("RightGloves") and char:FindFirstChild("LeftGloves") then
+         CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Executed successfully", Duration = 5})
+         char:FindFirstChild("RightGloves"):Destroy()
+         char:FindFirstChild("LeftGloves"):Destroy()
+    end
 end)
 --Button 3
 Section1:addButton("Permenant Inf Glove", function()
