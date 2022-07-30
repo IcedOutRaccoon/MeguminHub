@@ -25,11 +25,11 @@ UIS.InputBegan:Connect(function(Inp, Typ)
         if On == false then
             On = true
             Active = true
-            print(Active..math.random(-545454565, 6541553435534534))
+            print(Active..math.random(5454565, 6541553435534534))
         elseif On == true then
             On = false
             Active = false
-            print(Active..math.random(-545454565, 6541553435534534))
+            print(Active..math.random(54565, 6541553435534534))
         end
     end
 end)
