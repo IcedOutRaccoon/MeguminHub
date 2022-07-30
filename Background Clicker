@@ -5,6 +5,7 @@ getgenv().CD = 0.1
 local VIM = game:GetService("VirtualInputManager")
 local UIS = game:GetService("UserInputService")
 local CoreGui = game:GetService("StarterGui")
+local Mouse = game.Players.LocalPlayer:GetMouse()
 local On = false
 getgenv().Active = false
 
@@ -13,8 +14,8 @@ game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Universal Auto
 
 --//FUNCTION
 local function AutoClick()
-    VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
-    VIM:SendMouseButtonEvent(500, 500, 0, false, game, 1)
+    VIM:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, false, game, 1)
 end
 
 --//UIS
