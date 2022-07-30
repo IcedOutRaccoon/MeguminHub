@@ -1,71 +1,42 @@
 --//CONFIG
-getgenv().MinHunger = 15
-getgenv().Food = "yah"
+getgenv().CD = 0.1
 
 --//VAR
-print(math.random(0,1))
-local plr = game.Players.LocalPlayer
-local char = plr.Character
-local hum = char:WaitForChild("Humanoid")
+local VIM = game:GetService("VirtualInputManager")
+local UIS = game:GetService("UserInputService")
 local CoreGui = game:GetService("StarterGui")
---//VENYX
-local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
-local Kotz = Lib.new("Raccoon || TTK", 5013109572)
---//PAGE 1
---Page Vars
-local Page1 = Kotz:addPage("Farm", nil)
-local Section1 = Page1:addSection("Glove")
---//BRAIN
---Button 1
-Section1:addButton("Inf Gloves", function()
-    if plr.Character:FindFirstChild("Gloves") then
-        char:FindFirstChild("Gloves"):Destroy()
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "If you didn't use gloves before executing rebuy and execute again or rejoin", Duration = 5})
-    elseif plr.Backpack:FindFirstChild("Gloves") then
-        hum:EquipTool(plr.Backpack:FindFirstChild("Gloves"))
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Use glove then re-execute", Duration = 5})
-    end
-    if not char:FindFirstChild("Gloves") and not plr.Backpack:FindFirstChild("Gloves") then
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Buy gloves and use them for it to work", Duration = 5})
-    end
-end)
---Button 2
-Section1:addButton("Invis Glove", function()
-    if not char:FindFirstChild("RightGloves") and not char:FindFirstChild("LeftGloves") then
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Gloves not found either you didn't buy gloves or timer ran out", Duration = 5})
-    elseif char:FindFirstChild("RightGloves") and char:FindFirstChild("LeftGloves") then
-         CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Executed successfully", Duration = 5})
-         char:FindFirstChild("RightGloves"):Destroy()
-         char:FindFirstChild("LeftGloves"):Destroy()
-    end
-end)
---Button 3
-Section1:addButton("Permenant Inf Glove", function()
-    if plr.Character:FindFirstChild("Gloves") then
-        char:Destroy()
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "If you didn't use gloves before executing rebuy and execute again or rejoin", Duration = 5})
-    elseif plr.Backpack:FindFirstChild("Gloves") then
-        hum:EquipTool(plr.Backpack:FindFirstChild("Gloves"))
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Use glove then re-execute", Duration = 5})
-    end
-    if not char:FindFirstChild("Gloves") and not plr.Backpack:FindFirstChild("Gloves") then
-        CoreGui:SetCore("SendNotification", {Title = "Inf Gloves", Text = "Buy gloves and use them for it to work", Duration = 5})
-    end
-end)
-local Section2 = Page1:addSection("Food")
-Section2:addDropdown("Food", {"Ramen", "Burger", "Fried Chicken"}, function(text)
---//VAR
-    local currtool = nil
+local On = false
+getgenv().Active = false
 
---//BRAIN
-    if plr.Backpack:FindFirstChild(Food) then
-        if char:FindFirstChildWhichIsA("Tool") then
-            currtool = char:FindFirstChildWhichIsA("Tool")
-            hum:UneqipTools()
-            task.wait(0.05)
-            hum:EquipTool(char:FindFirstChild(getgenv().Food))
-            mouse1click()
-            CoreGui:SetCore("SendNotification", {Title = "Food", Text = "not out yet", Duration = 5})
+--//NOTIFICATION --//if you use this in a hub or something you can remove this I dont care
+game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Universal AutoClicker', Text = 'Made by a raccoon press L to start and stop', Duration = 5})
+
+--//FUNCTION
+local function AutoClick()
+    VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(500, 500, 0, false, game, 1)
+end
+
+--//UIS
+UIS.InputBegan:Connect(function(Inp, Typ)
+    if Typ then return end
+    if Inp.KeyCode == Enum.KeyCode.L then
+        if On == false then
+            On = true
+            Active = true
+            print(Active..math.random(-545454565, 6541553435534534))
+        elseif On == true then
+            On = false
+            Active = false
+            print(Active..math.random(-545454565, 6541553435534534))
         end
     end
 end)
+
+--//LOOP
+while task.wait(0.05) do
+    if Active == true then
+        task.wait(CD)
+        AutoClick()
+    end
+end
