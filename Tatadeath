@@ -33,7 +33,6 @@ local section1 = page:addSection("Auto Eat")
 
 section1:addDropdown("Choose Food", {"Ramen", "Burger"}, function(text)
     Food = text
-    print(Food)
 end)
 
 section1:addSlider("Stamina To Eat At", 50, 11, 99, function(value)
