@@ -11,6 +11,8 @@ local Food = "bruh" --PUT THE NAME OF THE FOOD INSIDE OF THE QUOTATION MARKS
 local FoodCD = 4 --dw about this
 local Tool = nil --dw about this
 local Active = false --dw about this
+local EXPActive = false
+local EXPFood = "bruh"
 
 --//FUNCTIONS
 local function Click()
@@ -65,6 +67,15 @@ section1:addToggle("Toggle Auto Eat", nil, function(value)
         AutoEatMain()
     end
 end)
+
+--//SECTION AUTO EXP FOOD
+
+local autoexp = page:addSection("EXP Eat")
+
+section1:addDropdown("Choose Food", {"Chocolate Shake", "Chicken"}, function(text)
+    EXPFood = text
+end)
+
 
 --//SECOND PAGE
 
