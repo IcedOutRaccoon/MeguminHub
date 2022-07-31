@@ -9,8 +9,8 @@ local Mouse = game.Players.LocalPlayer:GetMouse()
 local On = false
 getgenv().Active = false
 
---//NOTIFICATION --//if you use this in a hub or something you can remove this I dont care
-game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Universal AutoClicker', Text = 'Made by a raccoon press L to start and stop', Duration = 5})
+--NOTIF
+game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'L to turn off and on made by a raccoon', Duration = 5})
 
 --//FUNCTION
 local function AutoClick()
@@ -25,10 +25,11 @@ UIS.InputBegan:Connect(function(Inp, Typ)
         if On == false then
             On = true
             Active = true
-            print(Active..math.random(5454565, 6541553435534534))
+            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'Active', Duration = 5})
         elseif On == true then
             On = false
             Active = false
+            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'Not Active', Duration = 5})
             print(Active..math.random(54565, 6541553435534534))
         end
     end
