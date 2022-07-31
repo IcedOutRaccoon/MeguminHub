@@ -6,7 +6,7 @@ local UIS = game:GetService("UserInputManager")
 local active = false
 
 --//NOTIF
-game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Anti-Afk', Text = 'Made by a raccoon press K to start and stop', Duration = 5})
+game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Anti-Afk', Text = 'K to turn off and on made by a raccoon', Duration = 5})
 
 --//FUNCTION
 local function Click()
