@@ -50,8 +50,7 @@ while task.wait(0.25) do
         if tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) < MinHunger then
             if Player.Backpack:FindFirstChild(Food) and tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) ~= 10 then
                 task.wait(FoodCD)
-                Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
-                Click()
+                repeat wait() Hum:EquipTool(Player.Backpack:FindFirstChild(Food)) until Click()
             end
         end
     end
