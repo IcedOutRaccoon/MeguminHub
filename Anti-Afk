@@ -5,6 +5,9 @@ local VIM = game:GetService("VirtualInputManager")
 local UIS = game:GetService("UserInputManager")
 local active = false
 
+--//NOTIF
+game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Anti-Afk', Text = 'Made by a raccoon press K to start and stop', Duration = 5})
+
 --//FUNCTION
 local function Click()
     VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
@@ -16,8 +19,10 @@ UIS.InputBegan:Connect(function(inp, typ)
     if inp.KeyCode == Enum.KeyCode.K then
         if active == false then
             active = true
+            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Anti-Afk', Text = 'Active', Duration = 5})
         elseif active == true then
             active = false
+            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Anti-Afk', Text = 'Not Active', Duration = 5})
         end
     end
 end)
