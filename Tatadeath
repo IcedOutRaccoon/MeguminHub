@@ -68,6 +68,10 @@ local misc = venyx:addPage("Misc", 5012544693)
 
 local section1misc = misc:addSection("Background")
 
-section1misc:addButton("Press L to background autoclick", function()
+section1misc:addButton("Press L To Background Autoclick", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Background%20Clicker"))()
+end)
+
+section1misc:addButton("Anti Afk Press K To Disable", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Anti-Afk"))()
 end)
