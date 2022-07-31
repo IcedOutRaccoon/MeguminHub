@@ -1,0 +1,71 @@
+--//VAR
+local Player = game.Players.LocalPlayer
+local Char = Player.Character
+local Hum = Char:WaitForChild("Humanoid")
+local CoreGui = game:GetService("StarterGui")
+local VIM = game:GetService("VirtualInputManager")
+
+--//FUNCTIONS
+local function Click()
+    VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(500, 500, 0, false, game, 1)
+end
+
+--//CONFIG 
+local MinHunger = 50 --Can only be 10-99 the hunger that you eat food at
+local Food = "bruh" --PUT THE NAME OF THE FOOD INSIDE OF THE QUOTATION MARKS
+local FoodCD = 4 --dw about this
+local Tool = nil --dw about this
+local Active = false --dw about this
+
+--//LIBRARY
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new("TTK Macro Hub", 5013109572)
+
+--//FIRST PAGE MAIN PAGE
+
+local page = venyx:addPage("Main", 5012544693)
+
+--//FIRST LABEL AUTO EAT
+
+local section1 = page:addSection("Auto Eat")
+
+section1:addDropdown("Choose Food", {"Ramen", "Burger"}, function(text)
+    Food = text
+    print(Food)
+end)
+
+section1:addSlider("Stamina To Eat At", 50, 11, 99, function(value)
+    MinHunger = value
+end)
+
+section1:addToggle("Toggle Auto Eat", nil, function(value)
+    Active = value
+end)
+
+--//AUTO EAT LOOP
+while task.wait(0.25) do
+    if Active == true then
+        if tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) < MinHunger then
+            if Player.Backpack:FindFirstChild(Food) and tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) ~= 10 then
+                task.wait(FoodCD)
+                Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
+                task.wait()
+                Char:FindFirstChild(Food):Activate()
+            end
+        end
+    end
+end
+
+--//SECOND PAGE
+
+local page2 = venyx:addPage("Misc", 5012544693)
+
+--//SECTION ONE
+
+local section1 = page:addSection("Background")
+
+section1:addButton("Press L to background autoclick", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Background%20Clicker"))()
+end)
