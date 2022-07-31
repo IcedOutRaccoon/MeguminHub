@@ -60,12 +60,12 @@ end
 
 --//SECOND PAGE
 
-local page2 = venyx:addPage("Misc", 5012544693)
+local misc = venyx:addPage("Misc", 5012544693)
 
 --//SECTION ONE
 
-local section1p2 = page2:addSection("Background")
+local section1misc = misc:addSection("Background")
 
-section1p2:addButton("Press L to background autoclick", function()
+section1misc:addButton("Press L to background autoclick", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Background%20Clicker"))()
 end)
