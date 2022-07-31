@@ -40,6 +40,32 @@ local function AutoEatMain()
     end
 end
 
+local function AutoEatEXP()
+    while task.wait() do
+        task.wait(0.45)
+        if EXPActive == true then
+            if not Player:FindFirstChild("XPBoost") then
+                if Player.Backpack:FindFirstChild(EXPFood) then
+                    task.wait(FoodCD)
+                    Hum:EquipTool(Player.Backpack:FindFirstChild(EXPFood))
+                    if Char:FindFirstChild(EXPFood) then
+                        Char:FindFirstChild(EXPFood):Activate()
+                        EXPActive = false
+                        task.wait(0.25)
+                        EXPActive = true
+                    elseif not Char:FindFirstChild(EXPFood) then
+                        Hum:EquipTool(Player.Backpack:FindFirstChild(EXPFood))
+                        Char:FindFirstChild(EXPFood):Activate()
+                        EXPActive = false
+                        task.wait(0.25)
+                        EXPActive = true
+                    end
+                end
+            end
+        end
+    end
+end
+
 --//LIBRARY
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
@@ -72,10 +98,18 @@ end)
 
 local autoexp = page:addSection("EXP Eat")
 
-section1:addDropdown("Choose Food", {"Chocolate Shake", "Chicken"}, function(text)
+autoexp:addDropdown("Choose Food", {"Chocolate Shake", "Chicken"}, function(text)
     EXPFood = text
+    print(EXPFood)
 end)
 
+autoexp:addToggle("Toggle Auto EXP", nil, function(value)
+    EXPActive = value
+    print(EXPActive)
+    if EXPActive == true then
+        AutoEatEXP()
+    end
+end)
 
 --//SECOND PAGE
 
