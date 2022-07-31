@@ -1,0 +1,29 @@
+--//VARIABLE
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local VIM = game:GetService("VirtualInputManager")
+local UIS = game:GetService("UserInputManager")
+local active = false
+
+--//FUNCTION
+local function Click()
+    VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(500, 500, 0, false, game, 1)
+end
+
+--//UIS
+UIS.InputBegan:Connect(function(inp, typ)
+    if inp.KeyCode == Enum.KeyCode.K then
+        if active == false then
+            active = true
+        elseif active == true then
+            active = false
+        end
+    end
+end)
+--//IDLED
+plr.Idled:Connect(function()
+    if active == true then
+        Click()
+    end
+end)
