@@ -61,6 +61,9 @@ end)
 
 section1:addToggle("Toggle Auto Eat", nil, function(value)
     Active = value
+    if Active == true then
+        AutoEatMain()
+    end
 end)
 
 --//SECOND PAGE
