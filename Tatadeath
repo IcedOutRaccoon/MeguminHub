@@ -47,7 +47,7 @@ end)
 --//AUTO EAT LOOP
 while task.wait(0.25) do
     if Active == true then
-        if tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) < MinHunger then
+        if tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) < MinHunger or tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) == nil then
             if Player.Backpack:FindFirstChild(Food) and tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) ~= 10 then
                 task.wait(FoodCD)
                 repeat wait() Hum:EquipTool(Player.Backpack:FindFirstChild(Food)) until Click()
