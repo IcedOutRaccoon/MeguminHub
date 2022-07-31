@@ -50,10 +50,10 @@ section1:addToggle("Toggle Auto Eat", nil, function(value)
                     task.wait(FoodCD)
                     Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
                     if Char:FindFirstChild(Food) then
-                        Char:FindFirstChild(Food):Activate
-                    else
+                        Char:FindFirstChild(Food):Activate()
+                    elseif not Char:FindFirstChild(Food) then
                         Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
-                        Char:FindFirstChild(Food):Activate
+                        Char:FindFirstChild(Food):Activate()
                     end
                 end
             end
