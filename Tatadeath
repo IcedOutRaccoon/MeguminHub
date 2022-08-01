@@ -75,9 +75,76 @@ end
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
 local venyx = library.new("TTK Macro Hub", 5013109572)
 
---//FIRST PAGE MAIN PAGE
+--//FARMING
 
-local page = venyx:addPage("Main", 5012544693)
+local farming = venyx:addPage("Farming", 5012544693)
+
+--//AUTOCLICK SECTION
+
+local autoclicksection = farming:addSection("Autoclick")
+
+--//CONFIG
+getgenv().AutoClickCD = 0.1
+getgenv().AutoClickActive = false
+getgenv().StaminaToWait = 100
+getgenv().StaminaToWaitUntil = 10
+
+autoclicksection:addSlider("Autoclick Speed", 0, 0, 100, function(value)
+    AutoClickCD = value
+end)
+
+autoclicksection:addSlider("Stamina To Wait At", 1, 1, 1000, function(value)
+    StaminaToWait = value
+    print(StaminaToWait)
+end)
+
+autoclicksection:addSlider("Stamina To Wait For", 1, 1, 1000, function(value)
+    StaminaToWaitUntil = value
+    print(StaminaToWaitUntil)
+end)
+
+autoclicksection:addToggle("Toggle Autoclicker", nil, function(value)
+    AutoClickActive = value
+    --//LOOP
+    while AutoClickActive == true do
+        if game.Players.LocalPlayer.Stamina.Value <= StaminaToWait then
+            repeat wait() until game.Players.LocalPlayer.Stamina.Value == StaminaToWaitUntil
+        else
+            task.wait(CD)
+            Click()
+            task.wait()
+        end
+    end
+end)
+
+--//TOOL SECTION 
+
+--//CONFIG
+getgenv().ToolToFarm = "bruh"
+getgenv().ToolFarmOn = false
+
+local toolsection = farming:addSection("Tools")
+
+toolsection:addDropdown("Choose Tool", {"Pushup Training", "Squat Training", "Situp Training", "20 KG Dumbbell", "50 KG Dumbbell", "100 KG Dumbbell", "200 KG Dumbbell"}, function(text)
+    ToolToFarm = text
+end)
+
+toolsection:addToggle("Toggle Tool", nil, function(value)
+    ToolFarmOn = value
+    while ToolFarmOn == true do
+        task.wait(0.55)
+        if Player.Backpack:FindFirstChild(ToolToFarm) then
+            if not Char:FindFirstChild(ToolToFarm) then
+                Hum:EquipTool(Player.Backpack:FindFirstChild(ToolToFarm))
+                Char:FindFirstChild(ToolToFarm):Activate()
+            end
+        end
+    end
+end)
+
+--//FOOD PAGE
+
+local page = venyx:addPage("Food", 5012544693)
 
 --//FIRST LABEL AUTO EAT
 
@@ -87,7 +154,7 @@ section1:addDropdown("Choose Food", {"Ramen", "Burger"}, function(text)
     Food = text
 end)
 
-section1:addSlider("Stamina To Eat At", 50, 11, 99, function(value)
+section1:addSlider("Hunger To Eat At", 50, 11, 99, function(value)
     MinHunger = value
 end)
 
