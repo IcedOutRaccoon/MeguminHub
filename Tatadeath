@@ -44,6 +44,7 @@ local function AutoEatEXP()
     while task.wait() do
         task.wait(0.45)
         if EXPActive == true then
+        task.wait(0.45)
             if not Player:FindFirstChild("XPBoost") then
                 if Player.Backpack:FindFirstChild(EXPFood) then
                     task.wait(FoodCD)
