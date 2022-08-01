@@ -1,44 +1,199 @@
---//CONFIG
-getgenv().CD = 0.1
-
 --//VAR
-local VIM = game:GetService("VirtualInputManager")
-local UIS = game:GetService("UserInputService")
+local Player = game.Players.LocalPlayer
+local Char = Player.Character
+local Hum = Char:WaitForChild("Humanoid")
 local CoreGui = game:GetService("StarterGui")
-local Mouse = game.Players.LocalPlayer:GetMouse()
-local On = false
-getgenv().Active = false
+local VIM = game:GetService("VirtualInputManager")
 
---NOTIF
-game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'L to turn off and on made by a raccoon', Duration = 5})
+--//CONFIG 
+local MinHunger = 50 --Can only be 10-99 the hunger that you eat food at
+local Food = "bruh" --PUT THE NAME OF THE FOOD INSIDE OF THE QUOTATION MARKS
+local FoodCD = 4 --dw about this
+local Tool = nil --dw about this
+local Active = false --dw about this
+local EXPActive = false
+local EXPFood = "bruh"
 
---//FUNCTION
-local function AutoClick()
+--//FUNCTIONS
+local function Click()
     VIM:SendMouseButtonEvent(500, 500, 0, true, game, 1)
     VIM:SendMouseButtonEvent(500, 500, 0, false, game, 1)
 end
 
---//UIS
-UIS.InputBegan:Connect(function(Inp, Typ)
-    if Typ then return end
-    if Inp.KeyCode == Enum.KeyCode.L then
-        if On == false then
-            On = true
-            Active = true
-            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'Active', Duration = 5})
-        elseif On == true then
-            On = false
-            Active = false
-            game:GetService'StarterGui':SetCore('SendNotification', {Title = 'Autoclicker', Text = 'Not Active', Duration = 5})
-            print(Active..math.random(54565, 6541553435534534))
+local function AutoEatMain()
+        while task.wait() do
+        task.wait(0.45)
+        if Active == true then
+            if tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) < MinHunger or tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) == nil then
+                if Player.Backpack:FindFirstChild(Food) and tonumber(string.sub(game.Players.LocalPlayer.PlayerGui.MainGui.StatusFrame.Hunger.stat.Text, 1,2)) ~= 10 then
+                    task.wait(FoodCD)
+                    Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
+                    if Char:FindFirstChild(Food) then
+                        Char:FindFirstChild(Food):Activate()
+                    elseif not Char:FindFirstChild(Food) then
+                        Hum:EquipTool(Player.Backpack:FindFirstChild(Food))
+                        Char:FindFirstChild(Food):Activate()
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function AutoEatEXP()
+    while task.wait() do
+        task.wait(0.45)
+        if EXPActive == true then
+        task.wait(0.45)
+            if not Player:FindFirstChild("XPBoost") then
+                if Player.Backpack:FindFirstChild(EXPFood) then
+                    if EXPActive == false then
+                        break
+                    end
+                    task.wait(FoodCD)
+                    Hum:EquipTool(Player.Backpack:FindFirstChild(EXPFood))
+                    if Char:FindFirstChild(EXPFood) then
+                        Char:FindFirstChild(EXPFood):Activate()
+                        EXPActive = false
+                        task.wait(0.25)
+                        EXPActive = true
+                    elseif not Char:FindFirstChild(EXPFood) then
+                        Hum:EquipTool(Player.Backpack:FindFirstChild(EXPFood))
+                        Char:FindFirstChild(EXPFood):Activate()
+                        EXPActive = false
+                        task.wait(0.25)
+                        EXPActive = true
+                    end
+                end
+            end
+        end
+    end
+end
+
+--//LIBRARY
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new("TTK Macro Hub", 5013109572)
+
+--//FARMING
+
+local farming = venyx:addPage("Farming", 5012544693)
+
+--//AUTOCLICK SECTION
+
+local autoclicksection = farming:addSection("Autoclick")
+
+--//CONFIG
+getgenv().AutoClickCD = 0.1
+getgenv().AutoClickActive = false
+getgenv().StaminaToWait = 100
+getgenv().StaminaToWaitUntil = 10
+
+autoclicksection:addSlider("Autoclick Speed", 0, 0, 100, function(value)
+    AutoClickCD = value
+end)
+
+autoclicksection:addSlider("Stamina To Wait At", 1, 1, 1000, function(value)
+    StaminaToWait = value
+    print(StaminaToWait)
+end)
+
+autoclicksection:addSlider("Stamina To Wait For", 1, 1, 1000, function(value)
+    StaminaToWaitUntil = value
+    print(StaminaToWaitUntil)
+end)
+
+autoclicksection:addToggle("Toggle Autoclicker", nil, function(value)
+    AutoClickActive = value
+    --//LOOP
+    while AutoClickActive == true do
+        if game.Players.LocalPlayer.Stamina.Value <= StaminaToWait then
+            repeat wait() until game.Players.LocalPlayer.Stamina.Value == StaminaToWaitUntil
+        else
+            task.wait(CD)
+            Click()
+            task.wait()
         end
     end
 end)
 
---//LOOP
-while task.wait(0.05) do
-    if Active == true then
-        task.wait(CD)
-        AutoClick()
+--//TOOL SECTION 
+
+--//CONFIG
+getgenv().ToolToFarm = "bruh"
+getgenv().ToolFarmOn = false
+
+local toolsection = farming:addSection("Tools")
+
+toolsection:addDropdown("Choose Tool", {"Pushup Training", "Squat Training", "Situp Training", "20 KG Dumbbell", "50 KG Dumbbell", "100 KG Dumbbell", "200 KG Dumbbell"}, function(text)
+    ToolToFarm = text
+end)
+
+toolsection:addToggle("Toggle Tool", nil, function(value)
+    ToolFarmOn = value
+    while ToolFarmOn == true do
+        task.wait(0.55)
+        if Player.Backpack:FindFirstChild(ToolToFarm) then
+            if not Char:FindFirstChild(ToolToFarm) then
+                Hum:EquipTool(Player.Backpack:FindFirstChild(ToolToFarm))
+                Char:FindFirstChild(ToolToFarm):Activate()
+            end
+        end
     end
-end
+end)
+
+--//FOOD PAGE
+
+local page = venyx:addPage("Food", 5012544693)
+
+--//FIRST LABEL AUTO EAT
+
+local section1 = page:addSection("Auto Eat")
+
+section1:addDropdown("Choose Food", {"Ramen", "Burger"}, function(text)
+    Food = text
+end)
+
+section1:addSlider("Hunger To Eat At", 50, 11, 99, function(value)
+    MinHunger = value
+end)
+
+section1:addToggle("Toggle Auto Eat", nil, function(value)
+    Active = value
+    if Active == true then
+        AutoEatMain()
+    end
+end)
+
+--//SECTION AUTO EXP FOOD
+
+local autoexp = page:addSection("EXP Eat")
+
+autoexp:addDropdown("Choose Food", {"Chocolate Shake", "Chicken"}, function(text)
+    EXPFood = text
+    print(EXPFood)
+end)
+
+autoexp:addToggle("Toggle Auto EXP", nil, function(value)
+    EXPActive = value
+    print(EXPActive)
+    if EXPActive == true then
+        AutoEatEXP()
+    end
+end)
+
+--//SECOND PAGE
+
+local misc = venyx:addPage("Misc", 5012544693)
+
+--//SECTION ONE
+
+local section1misc = misc:addSection("Background")
+
+section1misc:addButton("Press L To Background Autoclick", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Background%20Clicker"))()
+end)
+
+section1misc:addButton("Anti Afk Press K To Disable", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IcedOutRaccoon/MeguminHub/main/Anti-Afk"))()
+end)
