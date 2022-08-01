@@ -47,6 +47,9 @@ local function AutoEatEXP()
         task.wait(0.45)
             if not Player:FindFirstChild("XPBoost") then
                 if Player.Backpack:FindFirstChild(EXPFood) then
+                    if EXPActive == false then
+                        break
+                    end
                     task.wait(FoodCD)
                     Hum:EquipTool(Player.Backpack:FindFirstChild(EXPFood))
                     if Char:FindFirstChild(EXPFood) then
