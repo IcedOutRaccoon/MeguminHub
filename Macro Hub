@@ -1,0 +1,332 @@
+--//VARIABLES
+local VIM = game:GetService("VirtualInputManager")
+local UIS = game:GetService("UserInputService")
+local CoreGui = game:GetService("StarterGui")
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Mouse = Player:GetMouse()
+
+--//SET VARIABLES
+
+--Auto Autoclicker
+getgenv().AutoClickerEnabled = false
+getgenv().AutoClickerSpeed = 0.1
+local AutoClickX = 500
+local AutoClickY = 500
+
+--Auto Key
+getgenv().AutoKeyEnabled1 = false
+getgenv().Key1 = "W"
+getgenv().HoldTime1 = 0.1
+
+getgenv().AutoKeyEnabled2 = false
+getgenv().Key2 = "A"
+getgenv().HoldTime2 = 0.1
+
+getgenv().AutoKeyEnabled3 = false
+getgenv().Key3 = "S"
+getgenv().HoldTime3 = 0.1
+
+getgenv().AutoKeyEnabled4 = false
+getgenv().Key4 = "D"
+getgenv().HoldTime4 = 0.1
+
+--//FUNCTIONS
+local function Click()
+    VIM:SendMouseButtonEvent(AutoClickX, AutoClickY, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(AutoClickX, AutoClickY, 0, false, game, 1)
+end
+
+local function AutoClick()
+    while task.wait(0.01) do
+        if getgenv().AutoClickerEnabled == true then
+            task.wait(getgenv().AutoClickerSpeed)
+            Click()
+        elseif getgenv().AutoClickerEnabled == false then
+            break
+        end
+    end
+end
+
+local function KeyPress1()
+    VIM:SendKeyEvent(true, getgenv().Key1, false, game)
+    task.wait(getgenv().HoldTime1)
+    VIM:SendKeyEvent(false, getgenv().Key1, false, game)
+end
+
+local function AutoKeyPress1()
+    while task.wait(0.01) do
+        if getgenv().AutoKeyEnabled1 == true then
+            KeyPress1()
+        else
+            break
+        end
+    end
+end
+
+local function KeyPress2()
+    VIM:SendKeyEvent(true, getgenv().Key2, false, game)
+    task.wait(getgenv().HoldTime2)
+    VIM:SendKeyEvent(false, getgenv().Key2, false, game)
+end
+
+local function AutoKeyPress2()
+    while task.wait(0.01) do
+        if getgenv().AutoKeyEnabled2 == true then
+            KeyPress2()
+        else
+            break
+        end
+    end
+end
+
+local function KeyPress3()
+    VIM:SendKeyEvent(true, getgenv().Key3, false, game)
+    task.wait(getgenv().HoldTime3)
+    VIM:SendKeyEvent(false, getgenv().Key3, false, game)
+end
+
+local function AutoKeyPress3()
+    while task.wait(0.01) do
+        if getgenv().AutoKeyEnabled3 == true then
+            KeyPress3()
+        else
+            break
+        end
+    end
+end
+
+local function KeyPress4()
+    VIM:SendKeyEvent(true, getgenv().Key4, false, game)
+    task.wait(getgenv().HoldTime4)
+    VIM:SendKeyEvent(false, getgenv().Key4, false, game)
+end
+
+local function AutoKeyPress4()
+    while task.wait(0.01) do
+        if getgenv().AutoKeyEnabled4 == true then
+            KeyPress4()
+        else
+            break
+        end
+    end
+end
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+OrionLib:MakeNotification({Name = "Alert!", Content = "All toggles can be turned off by pressing backslash on your keyboard", Image = "rbxassetid://4483345998", Time = 5})
+
+local Window = OrionLib:MakeWindow({Name = "Macro Hub", HidePremium = true, SaveConfig = true, ConfigFolder = "MacroHubConfiguration"})
+
+local Tab1 = Window:MakeTab({Name = "Auto Clicking", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+local Section1 = Tab1:AddSection({Name = "Main"})
+
+local AutoClickerToggle = Tab1:AddToggle({
+	Name = "Auto Clicker Toggle",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoClickerEnabled = Value
+		task.wait()
+		AutoClick()
+	end    
+})
+
+local Section2 = Tab1:AddSection({Name = "Configurations"})
+
+Tab1:AddTextbox({
+	Name = "Auto Click Speed",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    getgenv().AutoClickerSpeed = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+Tab1:AddTextbox({
+	Name = "Auto Click Position X",
+	Default = "500",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		   AutoClickX = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+Tab1:AddTextbox({
+	Name = "Auto Click Position Y",
+	Default = "500",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    AutoClickY = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+local MousePosLabel = Tab1:AddLabel("Move Mouse Or Re-Execute")
+
+Mouse.Move:Connect(function()
+    MousePosLabel:Set("Mouse X Position = "..Mouse.X.." Mouse Y Position = "..Mouse.Y)
+end)
+
+local Tab2 = Window:MakeTab({Name = "Auto Key", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+local Section = Tab2:AddSection({Name = "Key 1"})
+
+local AutoKeyToggle1 = Tab2:AddToggle({
+	Name = "Auto Key 1 Toggle",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoKeyEnabled1 = Value
+		task.wait()
+		AutoKeyPress1()
+	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Key 1",
+	Default = "W",
+	TextDisappear = false,
+	Callback = function(Value)
+	    getgenv().Key1 = Value
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Key Hold Time",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    getgenv().HoldTime1 = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+local Section = Tab2:AddSection({Name = "Key 2"})
+
+local AutoKeyToggle2 = Tab2:AddToggle({
+	Name = "Auto Key 2 Toggle",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoKeyEnabled2 = Value
+		task.wait()
+		AutoKeyPress2()
+	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Key 2",
+	Default = "A",
+	TextDisappear = false,
+	Callback = function(Value)
+	    getgenv().Key2 = Value
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Key Hold Time",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    getgenv().HoldTime2 = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+local Section = Tab2:AddSection({Name = "Key 3"})
+
+local AutoKeyToggle3 = Tab2:AddToggle({
+	Name = "Auto Key 3 Toggle",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoKeyEnabled3 = Value
+		task.wait()
+		AutoKeyPress3()
+	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Key 3",
+	Default = "S",
+	TextDisappear = false,
+	Callback = function(Value)
+	    getgenv().Key3 = Value
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Key Hold Time",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    getgenv().HoldTime3 = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+local Section = Tab2:AddSection({Name = "Key 4"})
+
+local AutoKeyToggle4 = Tab2:AddToggle({
+	Name = "Auto Key 4 Toggle",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoKeyEnabled4 = Value
+		task.wait()
+		AutoKeyPress4()
+	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Key 4",
+	Default = "D",
+	TextDisappear = false,
+	Callback = function(Value)
+	    getgenv().Key4 = Value
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Key Hold Time",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+		if tonumber(Value) then
+		    getgenv().HoldTime4 = Value
+		else
+		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+		end
+	end	  
+})
+
+--//TURN OFF TOGGLES
+
+UIS.InputBegan:Connect(function(inp)
+    if getgenv().AutoClickerEnabled == true then
+        if inp.KeyCode == Enum.KeyCode.BackSlash then
+           AutoClickerToggle:Set(false)
+           AutoKeyToggle1:Set(false)
+           AutoKeyToggle2:Set(false)
+           AutoKeyToggle3:Set(false)
+           AutoKeyToggle4:Set(false)
+        end
+    end
+end)
