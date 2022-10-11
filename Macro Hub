@@ -1,10 +1,14 @@
 --//VARIABLES
 local VIM = game:GetService("VirtualInputManager")
 local UIS = game:GetService("UserInputService")
+local TS = game:GetService("TweenService")
 local CoreGui = game:GetService("StarterGui")
 local Player = game.Players.LocalPlayer
-local Character = Player.Character
 local Mouse = Player:GetMouse()
+
+Player.CharacterAdded:Connect(function(chara)
+    Character = chara
+end)
 
 --//SET VARIABLES
 
@@ -30,6 +34,18 @@ getgenv().HoldTime3 = 0.1
 getgenv().AutoKeyEnabled4 = false
 getgenv().Key4 = "D"
 getgenv().HoldTime4 = 0.1
+
+--Auto Tool
+getgenv().AutoEquipToolEnabled = false
+getgenv().AutoToolEnabled = false
+getgenv().Tool = "deez nuts"
+getgenv().ToolActivateTime = 0.1
+
+--Teleport
+getgenv().TweenEnabled = false
+getgenv().TweenTime = 1
+getgenv().Position = 0,0,0
+getgenv().SpamTeleport = false
 
 --//FUNCTIONS
 local function Click()
@@ -106,6 +122,33 @@ local function AutoKeyPress4()
     while task.wait(0.01) do
         if getgenv().AutoKeyEnabled4 == true then
             KeyPress4()
+        else
+            break
+        end
+    end
+end
+
+local function AutoActivateTool()
+    while task.wait(0.01) do
+        if getgenv().AutoToolEnabled == true then
+            if Player.Character:FindFirstChild(getgenv().Tool) then
+                Player.Character:FindFirstChild(getgenv().Tool):Activate()
+            else
+                OrionLib:MakeNotification({Name = "Alert!", Content = "Equip the tool first", Image = "rbxassetid://4483345998", Time = 5})
+                break
+            end
+        else
+            break
+        end
+    end
+end
+
+local function AutoEquipTool()
+    while task.wait(0.3) do
+        if getgenv().AutoEquipToolEnabled == true then
+            if not Character:FindFirstChild(getgenv().Tool) then
+                Player.Character:WaitForChild("Humanoid"):EquipTool(Player.Backpack:FindFirstChild(getgenv().Tool))
+            end 
         else
             break
         end
@@ -317,6 +360,81 @@ Tab2:AddTextbox({
 	end	  
 })
 
+local Tab3 = Window:MakeTab({Name = "Tools", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+local Section = Tab3:AddSection({Name = "Toggles"})
+
+local AutoActivateTool = Tab3:AddToggle({
+	Name = "Auto Activate Tool",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoToolEnabled = Value
+		task.wait()
+		AutoActivateTool()
+	end    
+})
+
+local AutoEquipTool = Tab3:AddToggle({
+	Name = "Auto Equip Tool",
+	Default = false,
+	Callback = function(Value)
+		getgenv().AutoEquipToolEnabled = Value
+		task.wait()
+		AutoEquipTool()
+	end    
+})
+
+local Section = Tab3:AddSection({Name = "Configurations"})
+
+Tab3:AddTextbox({
+	Name = "Tool Name",
+	Default = "None",
+	TextDisappear = false,
+	Callback = function(Value)
+	    getgenv().Tool = Value
+	end	  
+})
+
+Tab3:AddTextbox({
+	Name = "Tool Activation Wait Time",
+	Default = "0.1",
+	TextDisappear = false,
+	Callback = function(Value)
+	    if tonumber(Value) then
+	        getgenv().ToolActivateTime = Value
+	    else
+	        OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
+	    end
+	end	  
+})
+
+Tab3:AddButton({
+	Name = "Copy tool name",
+	Callback = function()
+        if Character:FindFirstChildWhichIsA("Tool") then
+            setclipboard(Character:FindFirstChildWhichIsA("Tool").Name)
+        else
+            OrionLib:MakeNotification({Name = "Alert!", Content = "Equip a tool first", Image = "rbxassetid://4483345998", Time = 5})
+        end
+  	end    
+})
+
+local ToolName = Tab3:AddLabel("Hold a tool to view name")
+
+task.spawn(function()
+    while task.wait(1) do
+        if Player.Character:FindFirstChildWhichIsA("Tool") then
+            ToolName:Set("Tool name = "..Player.Character:FindFirstChildWhichIsA("Tool").Name)
+        end
+    end
+end)
+
+local Tab4 = Window:MakeTab({Name = "Teleport (WIP)", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+local Tab5 = Window:MakeTab({Name = "Local Player", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+
+
 --//TURN OFF TOGGLES
 
 UIS.InputBegan:Connect(function(inp)
@@ -327,6 +445,8 @@ UIS.InputBegan:Connect(function(inp)
            AutoKeyToggle2:Set(false)
            AutoKeyToggle3:Set(false)
            AutoKeyToggle4:Set(false)
+           AutoActivateTool:Set(false)
+           AutoEquipTool:Set(false)
         end
     end
 end)
