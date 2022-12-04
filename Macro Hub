@@ -452,7 +452,7 @@ local Input = Tab3:CreateInput({
    PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-	if tonumber(Value) then
+	if tonumber(Text) then
 	     getgenv().ToolActivateTime = Text
 	else
 	    
