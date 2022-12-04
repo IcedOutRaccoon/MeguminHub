@@ -135,8 +135,11 @@ local function AutoActivateTool()
             if Player.Character:FindFirstChild(getgenv().Tool) then
                 Player.Character:FindFirstChild(getgenv().Tool):Activate()
             else
-                OrionLib:MakeNotification({Name = "Alert!", Content = "Equip the tool first", Image = "rbxassetid://4483345998", Time = 5})
-                break
+                if getgenv().AutoEquipToolEnabled == true then
+		    repeat wait() until Player.Character:FindFirstChild(getgenv().Tool)
+		elseif getgenv().AutoEquipToolEnabled == false then
+		    break
+		end
             end
         else
             break
