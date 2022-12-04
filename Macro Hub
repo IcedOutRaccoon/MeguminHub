@@ -199,7 +199,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab1 = Window:CreateTab("Auto Clicking", 4483362458)
+local Tab1 = Window:CreateTab("Auto Clicking", 10088146947)
 
 local Section = Tab1:CreateSection("Main")
 
@@ -261,7 +261,7 @@ Mouse.Move:Connect(function()
     MousePosLabel:Set("Mouse X Position = "..Mouse.X.." Mouse Y Position = "..Mouse.Y)
 end)
 
-local Tab2 = Window:CreateTab("Auto Key", 4483362458)
+local Tab2 = Window:CreateTab("Auto Key", 11739049125)
 
 local Section = Tab2:CreateSection("Key 1")
 
@@ -407,7 +407,7 @@ local Input = Tab2:CreateInput({
    end,
 })
 
-local Tab3 = Window:CreateTab("Auto Tool", 4483362458)
+local Tab3 = Window:CreateTab("Auto Tool", 6594776234)
 
 local Section = Tab3:CreateSection("Toggles")
 
