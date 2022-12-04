@@ -4,6 +4,7 @@ local UIS = game:GetService("UserInputService")
 local TS = game:GetService("TweenService")
 local CoreGui = game:GetService("StarterGui")
 local Player = game.Players.LocalPlayer
+local Character = Player.Character
 local Mouse = Player:GetMouse()
 
 Player.CharacterAdded:Connect(function(chara)
@@ -51,8 +52,6 @@ getgenv().SpamTeleport = false
 local function Click()
     VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, true, game, 1)
     VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, false, game, 1)
-    print(getgenv().AutoClickX)
-    print(getgenv().AutoClickY)
 end
 
 local function AutoClick()
@@ -162,13 +161,12 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 Rayfield:Notify({
    Title = "Alert!",
    Content = "All Toggles can be turned off by pressing F1 on your keyboard",
-   Duration = 6.5,
+   Duration = 3.5,
    Image = 4483362458,
    Actions = { -- Notification Buttons
       Ignore = {
-         Name = "Okay!",
+         Name = "Okay",
          Callback = function()
-         print("The user tapped Okay!")
       end
    },
 },
