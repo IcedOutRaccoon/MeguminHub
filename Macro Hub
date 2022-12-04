@@ -264,7 +264,7 @@ Mouse.Move:Connect(function()
     MousePosLabel:Set("Mouse X Position = "..Mouse.X.." Mouse Y Position = "..Mouse.Y)
 end)
 
-local Tab2 = Window:CreateTab("Auto Key", 11739049088)
+local Tab2 = Window:CreateTab("Auto Key", 11746897361)
 
 local Section = Tab2:CreateSection("Key 1")
 
