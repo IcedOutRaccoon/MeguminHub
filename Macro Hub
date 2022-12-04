@@ -159,7 +159,7 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 
 Rayfield:Notify({
    Title = "Alert!",
-   Content = "All Toggles can be turned off by pressing | on your keyboard",
+   Content = "All Toggles can be turned off by pressing F1 on your keyboard",
    Duration = 6.5,
    Image = 4483362458,
    Actions = { -- Notification Buttons
@@ -178,7 +178,7 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "For Macroing Macroers Wow..",
    LoadingSubtitle = "by an Iced Raccoon",
    ConfigurationSaving = {
-      Enabled = true,
+      Enabled = false,
       FolderName = MacroHub, -- Create a custom folder for your hub/game
       FileName = "Macroer Hub"
    },
@@ -201,12 +201,12 @@ local Window = Rayfield:CreateWindow({
 
 local Tab1 = Window:CreateTab("Auto Clicking", 4483362458)
 
-local Section = Tab:CreateSection("Main")
+local Section = Tab1:CreateSection("Main")
 
-local Toggle = Tab1:CreateToggle({
+local AutoClickToggle = Tab1:CreateToggle({
    Name = "Enable Auto Clicker",
    CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "IDGAF BUDDY", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 	getgenv().AutoClickerEnabled = Value
 	task.wait()
@@ -214,11 +214,11 @@ local Toggle = Tab1:CreateToggle({
    end,
 })
 
-local Section2 = Tab:CreateSection("Configurations")
+local Section2 = Tab1:CreateSection("Configurations")
 
 local Input = Tab1:CreateInput({
    Name = "Auto Clicker Speed",
-   PlaceholderText = "Input Placeholder",
+   PlaceholderText = "0.01",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
       	if tonumber(Text) then
@@ -231,7 +231,7 @@ local Input = Tab1:CreateInput({
 
 local Input = Tab1:CreateInput({
    Name = "Auto Click X",
-   PlaceholderText = "Input Placeholder",
+   PlaceholderText = "Broken",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	if tonumber(Text) then
@@ -244,7 +244,7 @@ local Input = Tab1:CreateInput({
 
 local Input = Tab1:CreateInput({
    Name = "Auto Click Y",
-   PlaceholderText = "Input Placeholder",
+   PlaceholderText = "Broken",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	if tonumber(Text) then
@@ -277,7 +277,7 @@ local AutoKeyToggle1 = Tab2:CreateToggle({
 })
 
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key 1",
    PlaceholderText = "W",
    RemoveTextAfterFocusLost = false,
@@ -286,7 +286,7 @@ local Input = Tab:CreateInput({
    end,
 })
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key Hold Time",
    PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
@@ -313,7 +313,7 @@ local AutoKeyToggle2 = Tab2:CreateToggle({
 })
 
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key 2",
    PlaceholderText = "A",
    RemoveTextAfterFocusLost = false,
@@ -322,7 +322,7 @@ local Input = Tab:CreateInput({
    end,
 })
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key Hold Time",
    PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
@@ -349,16 +349,16 @@ local AutoKeyToggle3 = Tab2:CreateToggle({
 })
 
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key 3",
-   PlaceholderText = "A",
+   PlaceholderText = "S",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
 	getgenv().Key3 = Text
    end,
 })
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key Hold Time",
    PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
@@ -373,7 +373,7 @@ local Input = Tab:CreateInput({
 
 local Section = Tab2:CreateSection("Key 4")
 
-local AutoKeyToggle3 = Tab2:CreateToggle({
+local AutoKeyToggle4 = Tab2:CreateToggle({
    Name = "Auto Key 4 Toggle",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -385,16 +385,16 @@ local AutoKeyToggle3 = Tab2:CreateToggle({
 })
 
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key 4",
-   PlaceholderText = "A",
+   PlaceholderText = "D",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
 	getgenv().Key4 = Text
    end,
 })
 
-local Input = Tab:CreateInput({
+local Input = Tab2:CreateInput({
    Name = "Key Hold Time",
    PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
@@ -409,10 +409,9 @@ local Input = Tab:CreateInput({
 
 local Tab3 = Window:CreateTab("Auto Tool", 4483362458)
 
-local Section = Tab3:CreateSection({"Toggles")
+local Section = Tab3:CreateSection("Toggles")
 
-
-local Toggle = Tab:CreateToggle({
+local AutoActivateTool = Tab3:CreateToggle({
    Name = "Auto Activate Tool",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -423,7 +422,7 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-local Toggle = Tab:CreateToggle({
+local AutoEquipTool = Tab3:CreateToggle({
    Name = "Auto Equip Tool",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -436,18 +435,18 @@ local Toggle = Tab:CreateToggle({
 
 local Section = Tab3:CreateSection("Configurations")
 
-local Input = Tab:CreateInput({
+local Input = Tab3:CreateInput({
    Name = "Tool",
-   PlaceholderText = "Input Placeholder",
+   PlaceholderText = "Tool Name Here",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-	getgenv().Tool = Text
+	    getgenv().Tool = Text
    end,
 })
 
-local Input = Tab:CreateInput({
+local Input = Tab3:CreateInput({
    Name = "Tool Activation Wait Time",
-   PlaceholderText = "Input Placeholder",
+   PlaceholderText = "0.1",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
 	if tonumber(Value) then
@@ -459,7 +458,7 @@ local Input = Tab:CreateInput({
 })
 
 
-local Button = Tab:CreateButton({
+local Button = Tab3:CreateButton({
    Name = "Copy Tool Name",
    Callback = function()
   	 if Character:FindFirstChildWhichIsA("Tool") then
@@ -478,4 +477,17 @@ task.spawn(function()
             ToolName:Set("Tool name = "..Player.Character:FindFirstChildWhichIsA("Tool").Name)
         end
     end
-end
+end)
+
+UIS.InputBegan:Connect(function(inp, typing)
+    if inp.KeyCode == Enum.KeyCode.F1 then
+        if typing then return end
+        AutoEquipTool:Set(false)
+        AutoActivateTool:Set(false)
+        AutoKeyToggle1:Set(false)
+        AutoKeyToggle2:Set(false)
+        AutoKeyToggle3:Set(false)
+        AutoKeyToggle4:Set(false)
+        AutoClickToggle:Set(false)  
+    end
+end)
