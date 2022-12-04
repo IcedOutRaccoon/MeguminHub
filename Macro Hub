@@ -15,8 +15,8 @@ end)
 --Auto Autoclicker
 getgenv().AutoClickerEnabled = false
 getgenv().AutoClickerSpeed = 0.1
-local AutoClickX = 500
-local AutoClickY = 500
+getgenv().AutoClickX = 500
+getgenv().AutoClickY = 500
 
 --Auto Key
 getgenv().AutoKeyEnabled1 = false
@@ -49,8 +49,8 @@ getgenv().SpamTeleport = false
 
 --//FUNCTIONS
 local function Click()
-    VIM:SendMouseButtonEvent(AutoClickX, AutoClickY, 0, true, game, 1)
-    VIM:SendMouseButtonEvent(AutoClickX, AutoClickY, 0, false, game, 1)
+    VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, true, game, 1)
+    VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, false, game, 1)
 end
 
 local function AutoClick()
