@@ -235,7 +235,7 @@ local Input = Tab1:CreateInput({
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	if tonumber(Text) then
-	    AutoClickX = Text
+	    getgenv().AutoClickX = Text
 	else
 	   
 	end
@@ -248,7 +248,7 @@ local Input = Tab1:CreateInput({
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	if tonumber(Text) then
-	    AutoClickY = Text
+	    getgenv().AutoClickY = Text
 	else
 	   
 	end
