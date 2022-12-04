@@ -51,6 +51,8 @@ getgenv().SpamTeleport = false
 local function Click()
     VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, true, game, 1)
     VIM:SendMouseButtonEvent(getgenv().AutoClickX, getgenv().AutoClickY, 0, false, game, 1)
+    print(getgenv().AutoClickX)
+    print(getgenv().AutoClickY)
 end
 
 local function AutoClick()
