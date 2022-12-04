@@ -155,271 +155,322 @@ local function AutoEquipTool()
     end
 end
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-OrionLib:MakeNotification({Name = "Alert!", Content = "All toggles can be turned off by pressing backslash on your keyboard", Image = "rbxassetid://4483345998", Time = 5})
-
-local Window = OrionLib:MakeWindow({Name = "Macro Hub", HidePremium = true, SaveConfig = true, ConfigFolder = "MacroHubConfiguration"})
-
-local Tab1 = Window:MakeTab({Name = "Auto Clicking", Icon = "rbxassetid://4483345998", PremiumOnly = false})
-
-local Section1 = Tab1:AddSection({Name = "Main"})
-
-local AutoClickerToggle = Tab1:AddToggle({
-	Name = "Auto Clicker Toggle",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoClickerEnabled = Value
-		task.wait()
-		AutoClick()
-	end    
+Rayfield:Notify({
+   Title = "Alert!",
+   Content = "All Toggles can be turned off by pressing | on your keyboard",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
 })
 
-local Section2 = Tab1:AddSection({Name = "Configurations"})
 
-Tab1:AddTextbox({
-	Name = "Auto Click Speed",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    getgenv().AutoClickerSpeed = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Window = Rayfield:CreateWindow({
+   Name = "Macro Hub",
+   LoadingTitle = "For Macroing Macroers Wow..",
+   LoadingSubtitle = "by an Iced Raccoon",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = MacroHub, -- Create a custom folder for your hub/game
+      FileName = "Macroer Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "sirius", -- The Discord invite code, do not include discord.gg/
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Sirius Hub",
+      Subtitle = "Key System",
+      Note = "Join the discord (discord.gg/sirius)",
+      FileName = "SiriusKey",
+      SaveKey = true,
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = "Hello"
+   }
 })
 
-Tab1:AddTextbox({
-	Name = "Auto Click Position X",
-	Default = "500",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		   AutoClickX = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Tab1 = Window:CreateTab("Auto Clicking", 4483362458)
+
+local Section = Tab:CreateSection("Main")
+
+local Toggle = Tab1:CreateToggle({
+   Name = "Enable Auto Clicker",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+	getgenv().AutoClickerEnabled = Value
+	task.wait()
+	AutoClick()
+   end,
 })
 
-Tab1:AddTextbox({
-	Name = "Auto Click Position Y",
-	Default = "500",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    AutoClickY = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Section2 = Tab:CreateSection("Configurations")
+
+local Input = Tab1:CreateInput({
+   Name = "Auto Clicker Speed",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+      	if tonumber(Text) then
+	    getgenv().AutoClickerSpeed = Text
+	else
+	   
+	end	
+   end,
 })
 
-local MousePosLabel = Tab1:AddLabel("Move Mouse Or Re-Execute")
+local Input = Tab1:CreateInput({
+   Name = "Auto Click X",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	if tonumber(Text) then
+	    AutoClickX = Text
+	else
+	   
+	end
+   end,
+})
+
+local Input = Tab1:CreateInput({
+   Name = "Auto Click Y",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	if tonumber(Text) then
+	    AutoClickY = Text
+	else
+	   
+	end
+   end,
+})
+
+local MousePosLabel = Tab1:CreateLabel("Move Mouse Or Re-Execute")
 
 Mouse.Move:Connect(function()
     MousePosLabel:Set("Mouse X Position = "..Mouse.X.." Mouse Y Position = "..Mouse.Y)
 end)
 
-local Tab2 = Window:MakeTab({Name = "Auto Key", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Tab2 = Window:CreateTab("Auto Key", 4483362458)
 
-local Section = Tab2:AddSection({Name = "Key 1"})
+local Section = Tab2:CreateSection("Key 1")
 
-local AutoKeyToggle1 = Tab2:AddToggle({
-	Name = "Auto Key 1 Toggle",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoKeyEnabled1 = Value
-		task.wait()
-		AutoKeyPress1()
-	end    
+local AutoKeyToggle1 = Tab2:CreateToggle({
+   Name = "Auto Key 1 Toggle",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+	getgenv().AutoKeyEnabled1 = Value
+	task.wait()
+	AutoKeyPress1()
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key 1",
-	Default = "W",
-	TextDisappear = false,
-	Callback = function(Value)
-	    getgenv().Key1 = Value
-	end	  
+
+local Input = Tab:CreateInput({
+   Name = "Key 1",
+   PlaceholderText = "W",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	getgenv().Key1 = Text
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key Hold Time",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    getgenv().HoldTime1 = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Key Hold Time",
+   PlaceholderText = "0.1",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	if tonumber(Text) then
+	    getgenv().HoldTime1 = Text
+	else
+	   
+	end
+   end,
 })
 
-local Section = Tab2:AddSection({Name = "Key 2"})
+local Section = Tab2:CreateSection("Key 2")
 
-local AutoKeyToggle2 = Tab2:AddToggle({
-	Name = "Auto Key 2 Toggle",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoKeyEnabled2 = Value
-		task.wait()
-		AutoKeyPress2()
-	end    
+local AutoKeyToggle2 = Tab2:CreateToggle({
+   Name = "Auto Key 2 Toggle",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+	getgenv().AutoKeyEnabled2 = Value
+	task.wait()
+	AutoKeyPress2()
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key 2",
-	Default = "A",
-	TextDisappear = false,
-	Callback = function(Value)
-	    getgenv().Key2 = Value
-	end	  
+
+local Input = Tab:CreateInput({
+   Name = "Key 2",
+   PlaceholderText = "A",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	getgenv().Key2 = Text
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key Hold Time",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    getgenv().HoldTime2 = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Key Hold Time",
+   PlaceholderText = "0.1",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	if tonumber(Text) then
+	    getgenv().HoldTime2 = Text
+	else
+	   
+	end
+   end,
 })
 
-local Section = Tab2:AddSection({Name = "Key 3"})
+local Section = Tab2:CreateSection("Key 3")
 
-local AutoKeyToggle3 = Tab2:AddToggle({
-	Name = "Auto Key 3 Toggle",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoKeyEnabled3 = Value
-		task.wait()
-		AutoKeyPress3()
-	end    
+local AutoKeyToggle3 = Tab2:CreateToggle({
+   Name = "Auto Key 3 Toggle",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+	getgenv().AutoKeyEnabled3 = Value
+	task.wait()
+	AutoKeyPress3()
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key 3",
-	Default = "S",
-	TextDisappear = false,
-	Callback = function(Value)
-	    getgenv().Key3 = Value
-	end	  
+
+local Input = Tab:CreateInput({
+   Name = "Key 3",
+   PlaceholderText = "A",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	getgenv().Key3 = Text
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key Hold Time",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    getgenv().HoldTime3 = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Key Hold Time",
+   PlaceholderText = "0.1",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	if tonumber(Text) then
+	    getgenv().HoldTime3 = Text
+	else
+	   
+	end
+   end,
 })
 
-local Section = Tab2:AddSection({Name = "Key 4"})
+local Section = Tab2:CreateSection("Key 4")
 
-local AutoKeyToggle4 = Tab2:AddToggle({
-	Name = "Auto Key 4 Toggle",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoKeyEnabled4 = Value
-		task.wait()
-		AutoKeyPress4()
-	end    
+local AutoKeyToggle3 = Tab2:CreateToggle({
+   Name = "Auto Key 4 Toggle",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+	getgenv().AutoKeyEnabled4 = Value
+	task.wait()
+	AutoKeyPress4()
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key 4",
-	Default = "D",
-	TextDisappear = false,
-	Callback = function(Value)
-	    getgenv().Key4 = Value
-	end	  
+
+local Input = Tab:CreateInput({
+   Name = "Key 4",
+   PlaceholderText = "A",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	getgenv().Key4 = Text
+   end,
 })
 
-Tab2:AddTextbox({
-	Name = "Key Hold Time",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-		if tonumber(Value) then
-		    getgenv().HoldTime4 = Value
-		else
-		    OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-		end
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Key Hold Time",
+   PlaceholderText = "0.1",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	if tonumber(Text) then
+	    getgenv().HoldTime4 = Text
+	else
+	   
+	end
+   end,
 })
 
-local Tab3 = Window:MakeTab({Name = "Tools", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local Tab3 = Window:CreateTab("Auto Tool", 4483362458)
 
-local Section = Tab3:AddSection({Name = "Toggles"})
+local Section = Tab3:CreateSection({"Toggles")
 
-local AutoActivateTool = Tab3:AddToggle({
-	Name = "Auto Activate Tool",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoToolEnabled = Value
-		task.wait()
-		AutoActivateTool()
-	end    
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Activate Tool",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+ 	getgenv().AutoToolEnabled = Value
+	task.wait()
+	AutoActivateTool()
+   end,
 })
 
-local AutoEquipTool = Tab3:AddToggle({
-	Name = "Auto Equip Tool",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoEquipToolEnabled = Value
-		task.wait()
-		AutoEquipTool()
-	end    
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Equip Tool",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+ 	getgenv().AutoEquipToolEnabled = Value
+	task.wait()
+	AutoEquipTool()
+   end,
 })
 
-local Section = Tab3:AddSection({Name = "Configurations"})
+local Section = Tab3:CreateSection("Configurations")
 
-Tab3:AddTextbox({
-	Name = "Tool Name",
-	Default = "None",
-	TextDisappear = false,
-	Callback = function(Value)
-	    getgenv().Tool = Value
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Tool",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	getgenv().Tool = Text
+   end,
 })
 
-Tab3:AddTextbox({
-	Name = "Tool Activation Wait Time",
-	Default = "0.1",
-	TextDisappear = false,
-	Callback = function(Value)
-	    if tonumber(Value) then
-	        getgenv().ToolActivateTime = Value
-	    else
-	        OrionLib:MakeNotification({Name = "Alert!", Content = "Value needs to be a number 😒", Image = "rbxassetid://4483345998", Time = 5})
-	    end
-	end	  
+local Input = Tab:CreateInput({
+   Name = "Tool Activation Wait Time",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+	if tonumber(Value) then
+	     getgenv().ToolActivateTime = Text
+	else
+	    
+	end
+   end,
 })
 
-Tab3:AddButton({
-	Name = "Copy tool name",
-	Callback = function()
-        if Character:FindFirstChildWhichIsA("Tool") then
+
+local Button = Tab:CreateButton({
+   Name = "Copy Tool Name",
+   Callback = function()
+  	 if Character:FindFirstChildWhichIsA("Tool") then
             setclipboard(Character:FindFirstChildWhichIsA("Tool").Name)
         else
-            OrionLib:MakeNotification({Name = "Alert!", Content = "Equip a tool first", Image = "rbxassetid://4483345998", Time = 5})
+	
         end
-  	end    
+   end,
 })
 
-local ToolName = Tab3:AddLabel("Hold a tool to view name")
+local ToolName = Tab3:CreateLabel("Hold a tool to view name")
 
 task.spawn(function()
     while task.wait(1) do
@@ -427,26 +478,4 @@ task.spawn(function()
             ToolName:Set("Tool name = "..Player.Character:FindFirstChildWhichIsA("Tool").Name)
         end
     end
-end)
-
-local Tab4 = Window:MakeTab({Name = "Teleport (WIP)", Icon = "rbxassetid://4483345998", PremiumOnly = false})
-
-local Tab5 = Window:MakeTab({Name = "Local Player", Icon = "rbxassetid://4483345998", PremiumOnly = false})
-
-
-
---//TURN OFF TOGGLES
-
-UIS.InputBegan:Connect(function(inp)
-    if getgenv().AutoClickerEnabled == true then
-        if inp.KeyCode == Enum.KeyCode.BackSlash then
-           AutoClickerToggle:Set(false)
-           AutoKeyToggle1:Set(false)
-           AutoKeyToggle2:Set(false)
-           AutoKeyToggle3:Set(false)
-           AutoKeyToggle4:Set(false)
-           AutoActivateTool:Set(false)
-           AutoEquipTool:Set(false)
-        end
-    end
-end)
+end
