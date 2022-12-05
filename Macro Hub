@@ -133,6 +133,7 @@ local function AutoActivateTool()
     while task.wait(0.01) do
         if getgenv().AutoToolEnabled == true then
             if Player.Character:FindFirstChild(getgenv().Tool) then
+	    	task.wait(getgenv().ToolActivateTime)
                 Player.Character:FindFirstChild(getgenv().Tool):Activate()
             else
                 if getgenv().AutoEquipToolEnabled == true then
