@@ -180,7 +180,7 @@ Rayfield:Notify({
 local Window = Rayfield:CreateWindow({
    Name = "Macro Hub",
    LoadingTitle = "For Macroing Macroers Wow..",
-   LoadingSubtitle = "by an Iced Raccoon",
+   LoadingSubtitle = "Made by an Iced Raccoon",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = MacroHub, -- Create a custom folder for your hub/game
@@ -220,7 +220,7 @@ local AutoClickToggle = Tab1:CreateToggle({
 
 local Section2 = Tab1:CreateSection("Configurations")
 
-local Input = Tab1:CreateInput({
+local AutoClickerSpeed = Tab1:CreateInput({
    Name = "Auto Clicker Speed",
    PlaceholderText = "0.01",
    RemoveTextAfterFocusLost = false,
@@ -228,7 +228,7 @@ local Input = Tab1:CreateInput({
       	if tonumber(Text) then
 	    getgenv().AutoClickerSpeed = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end	
    end,
 })
@@ -241,7 +241,7 @@ local Input = Tab1:CreateInput({
    	if tonumber(Text) then
 	    getgenv().AutoClickX = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -254,7 +254,7 @@ local Input = Tab1:CreateInput({
    	if tonumber(Text) then
 	    getgenv().AutoClickY = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -298,7 +298,7 @@ local Input = Tab2:CreateInput({
 	if tonumber(Text) then
 	    getgenv().HoldTime1 = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -334,7 +334,7 @@ local Input = Tab2:CreateInput({
 	if tonumber(Text) then
 	    getgenv().HoldTime2 = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -370,7 +370,7 @@ local Input = Tab2:CreateInput({
 	if tonumber(Text) then
 	    getgenv().HoldTime3 = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -406,7 +406,7 @@ local Input = Tab2:CreateInput({
 	if tonumber(Text) then
 	    getgenv().HoldTime4 = Text
 	else
-	   
+	   Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -456,7 +456,7 @@ local Input = Tab3:CreateInput({
 	if tonumber(Text) then
 	     getgenv().ToolActivateTime = Text
 	else
-	    
+	    Rayfield:Notify({Title = "Alert!", Content = "Incorrect Value", Duration = 2.5, Image = 4483362458})
 	end
    end,
 })
@@ -468,7 +468,7 @@ local Button = Tab3:CreateButton({
   	 if Character:FindFirstChildWhichIsA("Tool") then
             setclipboard(Character:FindFirstChildWhichIsA("Tool").Name)
         else
-	
+	        Rayfield:Notify({Title = "Alert!", Content = "Equip a tool first", Duration = 2.5, Image = 4483362458})
         end
    end,
 })
@@ -482,6 +482,141 @@ task.spawn(function()
         end
     end
 end)
+
+local Tab4 = Window:CreateTab("Local Player", 4483362458)
+
+local Section = Tab4:CreateSection("Humanoid")
+
+local Button = Tab4:CreateButton({
+   Name = "Anti-Client Kick",
+   Callback = function()
+      local mt = getrawmetatable(game)
+      local old = mt.__namecall
+      local protect = newcclosure or protect_function
+
+      if not protect then
+         protect = function(f) return f end
+      end
+
+      setreadonly(mt, false)
+      mt.__namecall = protect(function(self, ...)
+      local method = getnamecallmethod()
+      if method == "Kick" then
+         wait(9e9)
+         return
+      end
+      return old(self, ...)
+      end)
+      hookfunction(game:GetService("Players").LocalPlayer.Kick,protect(function() wait(9e9) end))
+   end,
+})
+
+
+local Slider = Tab4:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {16, 200},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1",
+   Callback = function(Value)
+      Character:WaitForChild("Humanoid").WalkSpeed = Value
+   end,
+})
+
+local Slider = Tab4:CreateSlider({
+   Name = "JumpPower",
+   Range = {50, 250},
+   Increment = 1,
+   Suffix = "Jump",
+   CurrentValue = 50,
+   Flag = "Slider1",
+   Callback = function(Value)
+      Character:WaitForChild("Humanoid").JumpPower = Value
+   end,
+})
+
+local Slider = Tab4:CreateSlider({
+   Name = "HipHeight",
+   Range = {1, 75},
+   Increment = 1,
+   Suffix = "Height",
+   CurrentValue = 0,
+   Flag = "Slider1",
+   Callback = function(Value)
+      Character:WaitForChild("Humanoid").HipHeight = Value
+   end,
+})
+
+local Section2 = Tab4:CreateSection("Destroy")
+
+local Button = Tab4:CreateButton({
+   Name = "Left Arm",
+   Callback = function()
+      if Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+        Character:FindFirstChild("Left Arm"):Destroy()
+      elseif Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+        Character:FindFirstChild("LeftUpperArm"):Destroy()
+      end
+   end,
+})
+
+local Button = Tab4:CreateButton({
+   Name = "Right Arm",
+   Callback = function()
+      if Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+        Character:FindFirstChild("Right Arm"):Destroy()
+      elseif Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+        Character:FindFirstChild("RightUpperArm"):Destroy()
+      end
+   end,
+})
+
+local Button = Tab4:CreateButton({
+   Name = "Left Leg",
+   Callback = function()
+      if Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+        Character:FindFirstChild("Left Leg"):Destroy()
+      elseif Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+        Character:FindFirstChild("LeftUpperLeg"):Destroy()
+      end
+   end,
+})
+
+local Button = Tab4:CreateButton({
+   Name = "Right Leg",
+   Callback = function()
+      if Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+        Character:FindFirstChild("Right Leg"):Destroy()
+      elseif Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R15 then
+        Character:FindFirstChild("RightUpperLeg"):Destroy()
+      end
+   end,
+})
+
+local Button = Tab4:CreateButton({
+   Name = "Remove Accessories",
+   Callback = function()
+       for i,v in pairs(Character:GetDescendants()) do
+          if v:IsA("Accessory") then
+              v:Destroy()
+          end
+       end
+   end,
+})
+
+local Section2 = Tab4:CreateSection("Misc")
+
+local Button = Tab4:CreateButton({
+   Name = "Refresh",
+   Callback = function()
+       local RefreshPosition = Character.HumanoidRootPart.CFrame
+       task.wait()
+       Character:Destroy()
+       game:GetService("Workspace"):WaitForChild(Player.Name)
+       Character:WaitForChild("HumanoidRootPart").CFrame = RefreshPosition
+   end,
+})
 
 UIS.InputBegan:Connect(function(inp, typing)
     if inp.KeyCode == Enum.KeyCode.F1 then
