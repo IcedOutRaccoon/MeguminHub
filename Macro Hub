@@ -618,6 +618,27 @@ local Button = Tab4:CreateButton({
    end,
 })
 
+local Toggle = Tab4:CreateToggle({
+   Name = "Disable Seats",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   	if Value == true then
+	   for i,v in pairs(workspace) do
+	      if v:IsA("Seat") then
+	         v.Disabled = true
+	      end
+	   end
+	elseif Value == false then
+	     for i,v in pairs(workspace) do
+	       if v:IsA("Seat") then
+	          v.Disabled = false
+	       end
+	    end
+	end
+   end,
+})
+
 UIS.InputBegan:Connect(function(inp, typing)
     if inp.KeyCode == Enum.KeyCode.F1 then
         if typing then return end
